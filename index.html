@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CO-MAP-V: COVID-19 Massachussetts Map + Visualization Tool</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <img src="img/logo.png" height = "70px"> 
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">CO-MAP-V: COVID-19 Massachussetts Map + Visualization Tool</a>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="row">
+            <div class="col-lg-8 mx-auto"><br><br><br><br>
+                <script type="text/javascript" src="js/static.js"></script>
+                <div id="07b90991-782e-40c3-8b22-36ffc0aae1a8" style="height: 450px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("07b90991-782e-40c3-8b22-36ffc0aae1a8", [{"type": "bar", "x": ["Middlesex", "Worcester", "Suffolk", "Norfolk", "Essex", "Plymouth", "Bristol", "Hampden", "Barnstable", "Hampshire", "Berkshire", "Franklin", "Dukes", "Nantucket"], "y": [472, 229, 205, 195, 192, 171, 150, 121, 63, 45, 40, 12, 6, 4]}], {"title": "Total positive tests per county"}, {"showLink": true, "linkText": "Export to plot.ly"})</script><script type="text/javascript">window.addEventListener("resize", function(){Plotly.Plots.resize(document.getElementById("07b90991-782e-40c3-8b22-36ffc0aae1a8"));});</script>
+            </div>
+            <!--<div class="col-lg-4 mx-auto">
+                <script type="text/javascript" src="js/static.js"></script>
+                <div id="07b90991-782e-40c3-8b22-36ffc0aae1a8" style="height: 450px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("07b90991-782e-40c3-8b22-36ffc0aae1a8", [{"type": "bar", "x": ["Middlesex", "Worcester", "Suffolk", "Norfolk", "Essex", "Plymouth", "Bristol", "Hampden", "Barnstable", "Hampshire", "Berkshire", "Franklin", "Dukes", "Nantucket"], "y": [472, 229, 205, 195, 192, 171, 150, 121, 63, 45, 40, 12, 6, 4]}], {"title": "Total positive tests per county"}, {"showLink": true, "linkText": "Export to plot.ly"})</script><script type="text/javascript">window.addEventListener("resize", function(){Plotly.Plots.resize(document.getElementById("07b90991-782e-40c3-8b22-36ffc0aae1a8"));});</script>
+            </div>-->
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Details.</h2>
+                    <p class="lead">This visualization tool uses <a href = "https://forums.ohdsi.org/t/synthetic-data-with-simulated-covid-outbreak/10256 ">synthetic Synthea data</a> that mimics an early novel coronavirus (COVID-19) outbreak within the state of Massachusetts.</p>
+                    <ul>
+                        <li>Why synthetic data?  Synthetic data -- simulated data that are generated based on the trends and patterns of real data -- may provide an avenue for researchers to better understand real-world data trends without the need to overcome the obstacles involved in obtaining real patient data.</li>
+
+                        <li>Main aim: We do not aim to implement an upload feature allowing users to import their own COVID-19 data. Instead, we seek to create an open exploratory visualization tool framework that allows users who have basic Python, GeoJSON and data cleaning knowledge to make visualizations from their own COVID-19 demographic data in the Observational Medical Outcomes Partnership (OMOP) common data format, and include an appropriate GeoJSON, with minimal effort.</li>
+                    </ul>
+
+                <br><br>
+                <h2>DIY: Use your own data.</h2>
+                <p class="lead">If you have COVID-19 data, real or synthetic, in the OMOP common data model format, you can use our tool to help visualize your data!</p>
+                <ol>
+                    <li>Clone or download our GitHub repository</li>
+                    <li>To ensure that your data is properly translated for the visualization tool, use our SQL query and python script to format the data.</li>
+                    <li>Next step... </li>
+                </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Aja Sutton, Andrew Teng, Jason Thomas, Nanhsuan Yuan</p>
+            <br>
+            <p class="m-0 text-center text-gray">Theme: https://github.com/startbootstrap/startbootstrap-scrolling-nav</p>
+        </div>
+    <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+
+</body>
+</html>
