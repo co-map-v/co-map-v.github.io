@@ -1,4 +1,4 @@
-,county,condition_month,gender_source_value,race_source_value,ethnicity_source_value,positive_counts,death_counts,fips_code,population_2010
+,COUNTY,condition_month,gender_source_value,race_source_value,ethnicity_source_value,positive_counts,death_counts,fips_code,population_2010
 0,Barnstable,1,F,white,nonhispanic,9,1.0,25001,215888
 1,Barnstable,1,M,white,nonhispanic,9,6.0,25001,215888
 2,Barnstable,2,F,white,hispanic,1,,25001,215888
