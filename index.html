@@ -30,9 +30,11 @@
 
     <section id="about">
         <div class="row">
-            <div class="col-lg-8 mx-auto"><br><br><br><br>
-                <script type="text/javascript" src="js/static.js"></script>
-                <div id="07b90991-782e-40c3-8b22-36ffc0aae1a8" style="height: 450px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("07b90991-782e-40c3-8b22-36ffc0aae1a8", [{"type": "bar", "x": ["Middlesex", "Worcester", "Suffolk", "Norfolk", "Essex", "Plymouth", "Bristol", "Hampden", "Barnstable", "Hampshire", "Berkshire", "Franklin", "Dukes", "Nantucket"], "y": [472, 229, 205, 195, 192, 171, 150, 121, 63, 45, 40, 12, 6, 4]}], {"title": "Total positive tests per county"}, {"showLink": true, "linkText": "Export to plot.ly"})</script><script type="text/javascript">window.addEventListener("resize", function(){Plotly.Plots.resize(document.getElementById("07b90991-782e-40c3-8b22-36ffc0aae1a8"));});</script>
+            <div class="col-lg-4 mx-auto"><br><br><br><br>
+                <div id="choro"></div>
+            </div>
+            <div class="col-lg-4 mx-auto"><br><br><br><br>
+                <div id="curves"></div>
             </div>
             <!--<div class="col-lg-4 mx-auto">
                 <script type="text/javascript" src="js/static.js"></script>
@@ -76,15 +78,14 @@
     <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-
-    <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.js"></script>
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script> 
+        $(document).ready(function(){
+            $("#choro").load("map.html"); 
+            $("#curves").load("bar1.html"); 
+        });
+    </script> 
 
 </body>
 </html>
