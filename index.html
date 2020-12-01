@@ -30,43 +30,76 @@
             <a class="navbar-brand js-scroll-trigger" href="#page-top">CO-MAP-V: COVID-19 Massachussetts Map + Visualization Tool</a>
         </div>
     </nav>
-    
+
 <section>
         <div class="row">
-            <div class="col-lg-4 mx-auto"><br><br><br><br>
+            <div class="col-lg-4 mx-auto">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a class="active" href="#cases" data-toggle="tab">cases (map)</a></li>
-                    <li class="nav-item"><a href="#deaths" data-toggle="tab">deaths (map)</a></li>
-                    <li class="nav-item"><a href="#posrate" data-toggle="tab">positivity rate (map)</a></li>
-                    <li class="nav-item"><a href="#population" data-toggle="tab">population (map)</a></li>
-                    <li class="nav-item"><a href="#chart" data-toggle="tab">cases (chart)</a></li>
+                    <li class="active"><a data-toggle="tab" href="#cases">cases (map)</a></li>
+                    <li><a data-toggle="tab" href="#deaths">deaths (map)</a></li>
+                    <li><a data-toggle="tab" href="#posrate">positivity rate (map)</a></li>
+                    <li><a data-toggle="tab" href="#population">population (map)</a></li>
+                    <li><a data-toggle="tab" href="#hospitals">hospitals (map)</a></li>
+                    <li><a data-toggle="tab" href="#chart_cases">cases (chart)</a></li>
+                    <li><a data-toggle="tab" href="#chart_deaths">deaths (chart)</a></li>
                 </ul>
+
                 <div class="tab-content">
-                    <div id="cases">
+                    <div id="cases" class="tab-pane active">
                         <div id="choro"></div>
-                        <!--<script type="text/javascript" src="js/static.js"></script>
-                            <div id="07b90991-782e-40c3-8b22-36ffc0aae1a8" style="height: 450px; width: 100%;" class="plotly-graph-div"></div><script type="text/javascript">window.PLOTLYENV=window.PLOTLYENV || {};window.PLOTLYENV.BASE_URL="https://plot.ly";Plotly.newPlot("07b90991-782e-40c3-8b22-36ffc0aae1a8", [{"type": "bar", "x": ["Middlesex", "Worcester", "Suffolk", "Norfolk", "Essex", "Plymouth", "Bristol", "Hampden", "Barnstable", "Hampshire", "Berkshire", "Franklin", "Dukes", "Nantucket"], "y": [472, 229, 205, 195, 192, 171, 150, 121, 63, 45, 40, 12, 6, 4]}], {"title": "Total positive tests per county"}, {"showLink": true, "linkText": "Export to plot.ly"})</script><script type="text/javascript">window.addEventListener("resize", function(){Plotly.Plots.resize(document.getElementById("07b90991-782e-40c3-8b22-36ffc0aae1a8"));});
-                        </script>-->
-                        <div id="chart">
-                            <div id="curves"></div>
-                        </div>
+                    </div>
+                    <div id="deaths" class="tab-pane">
+                        DEATH MAP
+                    </div>
+                    <div id="posrate" class="tab-pane">
+                        POS. RATE MAP
+                    </div>
+                    <div id="population" class="tab-pane">
+                        <div id="choro"></div>
+                    </div>
+                    <div id="hospitals" class="tab-pane">
+                        HOSPITAL MAP
+                    </div>
+                    <div id="chart_cases" class="tab-pane">
+                        <div id="curves"></div>
+                    </div>
+                    <div id="chart_deaths" class="tab-pane">
+                        DEATH CHART
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 mx-auto"><br><br><br><br>
+                        <div class="col-lg-4 mx-auto">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a href="#cases1" data-toggle="tab">cases (map)</a></li>
-                    <li class="nav-item"><a href="#deaths1" data-toggle="tab">deaths (map)</a></li>
-                    <li class="nav-item"><a href="#posrate1" data-toggle="tab">positivity rate (map)</a></li>
-                    <li class="nav-item"><a href="#population1" data-toggle="tab">population (map)</a></li>
-                    <li class="nav-item"><a class="active" href="#chart1" data-toggle="tab">cases (chart)</a></li>
+                    <li class="active"><a data-toggle="tab" href="#cases1">cases (map)</a></li>
+                    <li><a data-toggle="tab" href="#deaths1">deaths (map)</a></li>
+                    <li><a data-toggle="tab" href="#posrate1">positivity rate (map)</a></li>
+                    <li><a data-toggle="tab" href="#population1">population (map)</a></li>
+                    <li><a data-toggle="tab" href="#hospitals1">hospitals (map)</a></li>
+                    <li><a data-toggle="tab" href="#chart_cases1">cases (chart)</a></li>
+                    <li><a data-toggle="tab" href="#chart_deaths1">deaths (chart)</a></li>
                 </ul>
+
                 <div class="tab-content">
-                    <div id="cases1">
+                    <div id="cases1" class="tab-pane active">
                         <div id="choro1"></div>
                     </div>
-                    <div id="chart1">
+                    <div id="deaths1" class="tab-pane">
+                        DEATH MAP
+                    </div>
+                    <div id="posrate1" class="tab-pane">
+                        POS. RATE MAP
+                    </div>
+                    <div id="population1" class="tab-pane">
+                        <div id="choro"></div>
+                    </div>
+                    <div id="hospitals1" class="tab-pane">
+                        HOSPITAL MAP
+                    </div>
+                    <div id="chart_cases1" class="tab-pane">
                         <div id="curves1"></div>
+                    </div>
+                    <div id="chart_deaths1" class="tab-pane">
+                        DEATH CHART
                     </div>
                 </div>
             </div>
@@ -79,7 +112,7 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
+                <div class="col-lg-10 mx-auto">
                     <h2>Details.</h2>
                     <p class="lead">This visualization tool uses <a href = "https://forums.ohdsi.org/t/synthetic-data-with-simulated-covid-outbreak/10256 ">synthetic Synthea data</a> that mimics an early novel coronavirus (COVID-19) outbreak within the state of Massachusetts.</p>
                     <ul>
@@ -112,7 +145,9 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script> 
         $(document).ready(function(){
             $("#choro").load("img/map.html"); 
