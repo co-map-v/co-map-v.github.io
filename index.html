@@ -17,6 +17,9 @@
     <link href="css/scrolling-nav.css" rel="stylesheet">
 
 </head>
+<link rel="icon" 
+      type="image/png" 
+      href="img/logo.png">
 
 <body id="page-top">
 
@@ -31,10 +34,36 @@
     <section id="about">
         <div class="row">
             <div class="col-lg-4 mx-auto"><br><br><br><br>
-                <div id="choro"></div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a class="active" href="#cases" data-toggle="tab">cases</a></li>
+                    <li class="nav-item"><a href="#deaths" data-toggle="tab">deaths</a></li>
+                    <li class="nav-item"><a href="#population" data-toggle="tab">population</a></li>
+                    <li class="nav-item"><a href="#chart" data-toggle="tab">chart</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="cases" class="tab-pane fade in active">
+                        <div id="choro"></div>
+                    </div>
+                    <div id="chart" class="tab-pane fade in active">
+                        <div id="curves"></div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-4 mx-auto"><br><br><br><br>
-                <div id="curves"></div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"><a href="#cases" data-toggle="tab">cases</a></li>
+                    <li class="nav-item"><a href="#deaths" data-toggle="tab">deaths</a></li>
+                    <li class="nav-item"><a href="#population" data-toggle="tab">population</a></li>
+                    <li class="nav-item"><a class="active" href="#chart" data-toggle="tab">chart</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="chart" class="tab-pane fade in active">
+                        <div id="curves"></div>
+                    </div>
+                    <div id="chart" class="tab-pane fade in active">
+                        <div id="curves"></div>
+                    </div>
+                </div>
             </div>
             <!--<div class="col-lg-4 mx-auto">
                 <script type="text/javascript" src="js/static.js"></script>
