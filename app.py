@@ -17,6 +17,7 @@
 import json
 import plotly.express as px
 import pandas as pd
+import flask
 import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
@@ -190,6 +191,7 @@ tabs = dbc.Tabs(
 
 # Formats the layout of the Dash dashboard. Imports the Bootstrap and
 # Dash theme
+server = flask.Flask(__name__)
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = dbc.Container(tabs)
 
