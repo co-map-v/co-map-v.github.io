@@ -39,7 +39,7 @@ df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.githu
 fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	featureidkey='properties.NAME',
 	color="death_counts",
-	title="Number of COVID-19 Deaths in Massachusetts (USA) by County, January-March 2020",
+	title="Number of COVID-19 Deaths in Massachusetts (USA) <br> by County, January-March 2020",
 	labels={'death_counts':'Number of Deaths',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
@@ -67,7 +67,7 @@ df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.githu
 fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	featureidkey='properties.NAME',
 	color="positive_counts",
-	title="Number of Positive COVID-19 Cases in Massachusetts (USA) by County, January-March 2020",
+	title="Number of Positive COVID-19 Cases in Massachusetts (USA) <br> by County, January-March 2020",
 	labels={'positive_counts':'Number of Cases',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
@@ -123,7 +123,7 @@ fig_pop_hist.update_layout(
 #read in the data
 df = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv')
 fig_cases_hist = px.histogram(df, x="COUNTY" , y="positive_counts", 
-    title="Number of Positive COVID-19 Cases in Massachusetts (USA) by County, January-March 2020",
+    title="Number of Positive COVID-19 Cases in Massachusetts (USA) <br> by County, January-March 2020",
     labels={'population_2010':'Population',
         'condition_month':'Month'},
      animation_frame="condition_month")
@@ -138,7 +138,7 @@ fig_cases_hist.update_layout(
 #read in the data
 df = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv')
 fig_death_hist = px.histogram(df, x="COUNTY" , y="death_counts", 
-    title="Number of COVID-19 Deaths in Massachusetts (USA) by County, January-March 2020",
+    title="Number of COVID-19 Deaths in Massachusetts (USA) <br> by County, January-March 2020",
     labels={'population_2010':'Population',
         'condition_month':'Month'},
      animation_frame="condition_month")
