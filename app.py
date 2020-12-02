@@ -29,10 +29,10 @@ import dash_html_components as html
 # the state of Massachusetts. Includes an interactive time slider
 # based on month of the year.
 
-with open('data/ma_map.geojson', 'r') as response:
+with open('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson', 'r') as response:
     counties = json.load(response)
 
-df_time = pd.read_csv('data/covid_ma_positive_death_counts.csv',
+df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv',
 	dtype={'COUNTY': str})
 
 fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -57,10 +57,10 @@ fig_death.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 # county for the state of Massachusetts. Includes an interactive
 # timeslider based on month of the year.
 
-with open('data/ma_map.geojson', 'r') as response:
+with open('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson', 'r') as response:
     counties = json.load(response)
 
-df_time = pd.read_csv('data/covid_ma_positive_death_counts.csv',
+df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv',
 	dtype={'COUNTY': str})
 
 fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -84,10 +84,10 @@ fig_case.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 # Generates a choropleth map of population density by
 # county for the state of Massachusetts.
 
-with open('data/ma_map.geojson', 'r') as response:
+with open('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson', 'r') as response:
     counties = json.load(response)
 
-df_time = pd.read_csv('data/covid_ma_positive_death_counts.csv',
+df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv',
 	dtype={'COUNTY': str})
 
 fig_pop = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -107,7 +107,7 @@ fig_pop.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 # Population Histogram
 
 #read in the data
-df = pd.read_csv('data/covid_ma_positive_death_counts.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv')
 fig_pop_hist = px.histogram(df, x="COUNTY" , y="population_2010", 
     title="Population by County, Massachusetts (USA), 2010 Census",
     labels={'population_2010':'Population',
@@ -116,7 +116,7 @@ fig_pop_hist = px.histogram(df, x="COUNTY" , y="population_2010",
 # Cases Histogram
 
 #read in the data
-df = pd.read_csv('data/covid_ma_positive_death_counts.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv')
 fig_cases_hist = px.histogram(df, x="COUNTY" , y="positive_counts", 
     title="Number of Positive COVID-19 Cases in Massachusetts (USA) by County, January-March 2020",
     labels={'population_2010':'Population',
@@ -131,7 +131,7 @@ fig_cases_hist.update_layout(
 # Deaths Histogram
 
 #read in the data
-df = pd.read_csv('data/covid_ma_positive_death_counts.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv')
 fig_death_hist = px.histogram(df, x="COUNTY" , y="death_counts", 
     title="Number of COVID-19 Deaths in Massachusetts (USA) by County, January-March 2020",
     labels={'population_2010':'Population',
