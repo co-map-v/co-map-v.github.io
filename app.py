@@ -111,8 +111,12 @@ fig_pop.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 df = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv')
 fig_pop_hist = px.histogram(df, x="COUNTY" , y="population_2010", 
     title="Population by County, Massachusetts (USA), 2010 Census",
-    labels={'population_2010':'Population',
-		'COUNTY':'County'},)
+    labels={'population_2010':'Population'},)
+
+fig_pop_hist.update_layout(
+    xaxis_title_text='County', # xaxis label
+    yaxis_title_text='Population', # yaxis label
+)
 
 # Cases Histogram
 
@@ -139,7 +143,7 @@ fig_death_hist = px.histogram(df, x="COUNTY" , y="death_counts",
         'condition_month':'Month'},
      animation_frame="condition_month")
 
-fig_cases_hist.update_layout(
+fig_death_hist.update_layout(
     xaxis_title_text='County', # xaxis label
     yaxis_title_text='Total Deaths', # yaxis label
 )
