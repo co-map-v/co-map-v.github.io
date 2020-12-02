@@ -21,6 +21,7 @@ import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
+import urllib.request
 
 # Death Counts Map
 
@@ -29,7 +30,7 @@ import dash_html_components as html
 # the state of Massachusetts. Includes an interactive time slider
 # based on month of the year.
 
-with open('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson', 'r') as response:
+with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
     counties = json.load(response)
 
 df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv',
@@ -57,7 +58,7 @@ fig_death.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 # county for the state of Massachusetts. Includes an interactive
 # timeslider based on month of the year.
 
-with open('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson', 'r') as response:
+with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
     counties = json.load(response)
 
 df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv',
@@ -84,7 +85,7 @@ fig_case.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 # Generates a choropleth map of population density by
 # county for the state of Massachusetts.
 
-with open('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson', 'r') as response:
+with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
     counties = json.load(response)
 
 df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv',
@@ -190,4 +191,4 @@ app.layout = dbc.Container(tabs)
 
 # Starts local server
 if __name__ == "__main__":
-    app.run_server
+    app.run_server(debug=True)

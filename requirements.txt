@@ -2,6 +2,9 @@ dash==1.9.0
 dash_core_components==1.8.0
 dash_html_components==1.0.2
 dash_bootstrap_components==0.10.7
+Flask==1.1.1
+Flask-Compress==1.4.0
 pandas==0.24.2
 plotly==4.1.0
 plotly_express==0.4.0
+urllib==3.9
