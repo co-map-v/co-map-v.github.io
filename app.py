@@ -21,8 +21,6 @@ import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
-#from dash.dependencies import Input, Output
-
 
 # Death Counts Map
 
@@ -40,8 +38,7 @@ df_time = pd.read_csv('data/covid_ma_positive_death_counts.csv',
 fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	featureidkey='properties.NAME',
 	color="death_counts",
-	title="Number of COVID-19 Deaths in Massachusetts (USA) by " +
-		"County, January-March 2020",
+	title="Number of COVID-19 Deaths in Massachusetts (USA) by County, January-March 2020",
 	labels={'death_counts':'Number of Deaths',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
@@ -69,8 +66,7 @@ df_time = pd.read_csv('data/covid_ma_positive_death_counts.csv',
 fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	featureidkey='properties.NAME',
 	color="positive_counts",
-	title="Number of Positive COVID-19 Cases in Massachusetts (USA)"
-		+ " by County, January-March 2020",
+	title="Number of Positive COVID-19 Cases in Massachusetts (USA) by County, January-March 2020",
 	labels={'positive_counts':'Number of Cases',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
@@ -97,8 +93,7 @@ df_time = pd.read_csv('data/covid_ma_positive_death_counts.csv',
 fig_pop = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	featureidkey='properties.NAME',
 	color="population_2010",
-	title="Population by County, Massachusetts (USA), " +
-		"January-March 2020",
+	title="Population by County, Massachusetts (USA), 2010 Census",
 	labels={'population_2010':'Population',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
@@ -109,26 +104,44 @@ fig_pop.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
 #fig.show()
 
 
-# Graph IDs
+# Population Histogram
 
-# Assign identifiers to plotly graph figures and formats them with Dash
-# them with Dash components
+#read in the data
+df = pd.read_csv('data/covid_ma_positive_death_counts.csv')
+fig_pop_hist = px.histogram(df, x="COUNTY" , y="population_2010", 
+    title="Population by County, Massachusetts (USA), 2010 Census",
+    labels={'population_2010':'Population',
+		'COUNTY':'County'},)
 
-graph1 = dcc.Graph(
-    id='graph1',
-    figure=fig_death,
-    className="six columns"
+# Cases Histogram
+
+#read in the data
+df = pd.read_csv('data/covid_ma_positive_death_counts.csv')
+fig_cases_hist = px.histogram(df, x="COUNTY" , y="positive_counts", 
+    title="Number of Positive COVID-19 Cases in Massachusetts (USA) by County, January-March 2020",
+    labels={'population_2010':'Population',
+        'condition_month':'Month'},
+     animation_frame="condition_month")
+
+fig_cases_hist.update_layout(
+    xaxis_title_text='County', # xaxis label
+    yaxis_title_text='Total Cases', # yaxis label
 )
-graph2 = dcc.Graph(
-    id='graph2',
-    figure=fig_case,
-    className="six columns"
-    )
-graph3 = dcc.Graph(
-    id='graph3',
-    figure=fig_pop,
-    className="six columns"
-    )
+
+# Deaths Histogram
+
+#read in the data
+df = pd.read_csv('data/covid_ma_positive_death_counts.csv')
+fig_death_hist = px.histogram(df, x="COUNTY" , y="death_counts", 
+    title="Number of COVID-19 Deaths in Massachusetts (USA) by County, January-March 2020",
+    labels={'population_2010':'Population',
+        'condition_month':'Month'},
+     animation_frame="condition_month")
+
+fig_cases_hist.update_layout(
+    xaxis_title_text='County', # xaxis label
+    yaxis_title_text='Total Deaths', # yaxis label
+)
 
 
 # Tab Content
@@ -137,16 +150,22 @@ graph3 = dcc.Graph(
 # into the tab window space.
 
 tab1_content = dbc.Card(
-    dbc.CardBody([html.Div(graph1)]),
-    className="mt-3",
+    dbc.CardBody([html.Div(dcc.Graph(figure=fig_case,))]),
 )
 tab2_content = dbc.Card(
-    dbc.CardBody([html.Div(graph3)]),
-    className="mt-3",
+    dbc.CardBody([html.Div(dcc.Graph(figure=fig_death,))]),
 )
 tab3_content = dbc.Card(
-    dbc.CardBody([html.Div(graph2)]),
-    className="mt-3",
+    dbc.CardBody([html.Div(dcc.Graph(figure=fig_pop,))]),
+)
+tab4_content = dbc.Card(
+    dbc.CardBody([html.Div(dcc.Graph(figure=fig_cases_hist,))]),
+)
+tab5_content = dbc.Card(
+    dbc.CardBody([html.Div(dcc.Graph(figure=fig_death_hist,))]),
+)
+tab6_content = dbc.Card(
+    dbc.CardBody([html.Div(dcc.Graph(figure=fig_pop_hist,))]),
 )
 
 # Bootstrap Tabs
@@ -158,6 +177,9 @@ tabs = dbc.Tabs(
         dbc.Tab(tab1_content, label="Cases (Map)"),
         dbc.Tab(tab2_content, label="Deaths (Map)"),
         dbc.Tab(tab3_content, label="Population (Map)"),
+        dbc.Tab(tab4_content, label="Cases (Chart)"),
+        dbc.Tab(tab5_content, label="Deaths (Chart)"),
+        dbc.Tab(tab6_content, label="Population (Chart)"),
     ]
 )
 
