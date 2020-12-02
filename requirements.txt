@@ -7,4 +7,3 @@ Flask-Compress==1.4.0
 pandas==0.24.2
 plotly==4.1.0
 plotly_express==0.4.0
-urllib==3.9
