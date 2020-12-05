@@ -87,12 +87,13 @@ def merge_data(data_pos, data_death, pop):
     add documentation
     '''
 
-    data_flat = pd.merge (data_pos, data_death, on = ['county', 
+    data_flat = pd.merge(data_pos, data_death, on = ['county', 
                                                         'condition_month', 
                                                         'gender_source_value', 
                                                         'race_source_value',
                                                         'ethnicity_source_value'], how="outer")
-    data_flat_pop_fips = pd.merge (data_flat, pop, on = ['county'])
+    data_flat_pop_fips = pd.merge(data_flat, pop, on = ['county'])
+    data_flat_pop_fips.fillna(value=0, inplace=True) #filling in the NaN with 0
     return data_flat_pop_fips
 
 
