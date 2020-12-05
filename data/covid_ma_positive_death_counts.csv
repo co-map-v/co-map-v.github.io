@@ -137,6 +137,8 @@
 135,Nantucket,2,F,white,nonhispanic,2,0.0,25019,10172
 136,Nantucket,2,M,white,hispanic,1,0.0,25019,10172
 137,Nantucket,2,M,white,nonhispanic,1,0.0,25019,10172
+240,Nantucket,1,M,white,nonhispanic,0,0.0,25019,10172
+241,Nantucket,3,M,white,hispanic,0,0.0,25019,10172
 138,Norfolk,1,F,asian,nonhispanic,6,3.0,25021,670850
 139,Norfolk,1,F,black,nonhispanic,2,0.0,25021,670850
 140,Norfolk,1,F,white,hispanic,3,1.0,25021,670850
@@ -239,5 +241,3 @@
 237,Worcester,3,M,black,hispanic,1,0.0,25027,798552
 238,Worcester,3,M,white,hispanic,2,0.0,25027,798552
 239,Worcester,3,M,white,nonhispanic,37,1.0,25027,798552
-240,Nantucket,1,M,white,nonhispanic,0,0.0,25019,10172
-241,Nantucket,3,M,white,hispanic,0,0.0,25019,10172
