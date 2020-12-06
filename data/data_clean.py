@@ -26,12 +26,12 @@ data = read_patient_data(patient_data_path)
 pop = read_pop_data(population_data_path)
 
 #clean the data
-data = county_cleaning(data)[0]
-death = county_cleaning(data)[1]
+data,death = county_cleaning(data)
+# death = county_cleaning(data)[1]
 
 #generate features
-data_pos = features_by_county(data, death)[0]
-data_death = features_by_county(death, death)[1]
+data_pos, data_death = features_by_county(data, death)
+# data_death = features_by_county(death, death)[1]
 
 #create dataframe for visualization
 data_flat_pop_fips = merge_data(data_pos, data_death, pop)

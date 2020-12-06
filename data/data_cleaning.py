@@ -50,15 +50,18 @@ def county_cleaning(patient_dataset):
     '''
     improve documentation
     '''
+    if 'county' not in patient_dataset:
+        raise NameError('No column named "county"')
+    if 'condition_start_datetime' not in patient_dataset:
+        raise NameError('No column named "condition_start_datetime"')
+    if 'death_datetime' not in patient_dataset:
+        raise NameError('No column named "death_datetime"')
     data = patient_dataset
     #remove the word 'county' from the county column
     data['county'] = data['county'].str.split(' ').str[0]
     data['condition_month'] = pd.DatetimeIndex(data['condition_start_datetime']).month
     death = data [data['death_datetime'].notna()]
-    result = (data, death)
-    return result
-
-
+    return data,death
 
 #cases by county
 #some persons have multiple entries (unique cases)
@@ -78,15 +81,13 @@ def features_by_county(patient_data, death_data):
                                 'gender_source_value',
                                 'race_source_value', 
                                 'ethnicity_source_value']).size().reset_index(name='death_counts')
-    result = (data_pos, data_death)
-    return result
+    return data_pos,data_death
 
     
 def merge_data(data_pos, data_death, pop):
     '''
     add documentation
     '''
-
     data_flat = pd.merge(data_pos, data_death, on = ['county', 
                                                         'condition_month', 
                                                         'gender_source_value', 
@@ -98,6 +99,10 @@ def merge_data(data_pos, data_death, pop):
 
 
 def write_file_for_viz(data_flat_pop_fips, path):
+    nan_columns = []
+    for column in data_flat_pop_fips.columns:
+        if False in data_flat_pop_fips[column].isna().tolist():
+            nan_columns.append(column)
+    if nan_columns != []:
+        raise ValueError('Nan values in ' + str([column for column in nan_columns]))
     data_flat_pop_fips.to_csv(path, sep = ',')
-
-
