@@ -1,10 +1,12 @@
+import sys
+sys.path.append("../data")
 import unittest
-from data import data_cleaning
+import data_cleaning
 import pandas as pd
 import numpy as np
 
 
-class TestEdge(unittest.TestCase):
+class UnitTests(unittest.TestCase):
     def test_column_names(self):  
         df = pd.DataFrame({'county1': ['County1','County2'],'condition': [1,2],
                             'deaths': [1,2]})      
@@ -18,5 +20,5 @@ class TestEdge(unittest.TestCase):
         with self.assertRaises(ValueError):
             data_cleaning.write_file_for_viz(df,path)
 
-if __name__ == '__main__':
-    unittest.main()
+suite = unittest.TestLoader().loadTestsFromTestCase(UnitTests)
+_ = unittest.TextTestRunner().run(suite)
