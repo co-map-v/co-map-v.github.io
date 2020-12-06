@@ -1,5 +1,7 @@
 import unittest
-from co-map-v.github.io.data import data_cleaning
+import sys
+sys.path.insert(0, '/co-map-v.github.io/data')
+from data import data_cleaning
 import pandas as pd
 import numpy as np
 
