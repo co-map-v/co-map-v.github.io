@@ -1,5 +1,5 @@
 import unittest
-from data import data_cleaning
+from co-map-v.github.io.data import data_cleaning
 import pandas as pd
 import numpy as np
 
