@@ -1,7 +1,5 @@
-import sys
-sys.path.append("../data")
 import unittest
-import data_cleaning
+from data import data_cleaning
 import pandas as pd
 import numpy as np
 
