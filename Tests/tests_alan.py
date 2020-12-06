@@ -1,6 +1,6 @@
 import unittest
 import sys
-sys.path.insert(1, '/co-map-v.github.io/data')
+sys.path.insert(1, '../data')
 from data import data_cleaning
 import pandas as pd
 import numpy as np
