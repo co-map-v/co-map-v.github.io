@@ -36,7 +36,7 @@ def death_counts_map(df_time,counties):
 	labels={'death_counts':'Number of Deaths',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
-	color_continuous_scale=px.colors.sequential.Blues,
+	color_continuous_scale=px.colors.sequential.Reds,
 	range_color=[0,30],
 	animation_frame="condition_month")
     fig_death.update_geos(fitbounds="locations", visible=False)
@@ -77,7 +77,7 @@ def population_map(df_time,counties):
 	labels={'population_2010':'Population',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
-	color_continuous_scale=px.colors.sequential.Blues,
+	color_continuous_scale=px.colors.sequential.Greens,
 	range_color=[1,800000])
     fig_pop.update_geos(fitbounds="locations", visible=False)
     fig_pop.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
