@@ -5,11 +5,7 @@ language: python
 # note that all of the versions listed will be tried
 matrix:
     include:
-        - python: 3.5
-        - python: 3.6
         - python: 3.7
-        - python: 3.8
-        - python: 3.9
 
 # what branches should be evaluated
 branches:
@@ -28,9 +24,9 @@ before_install:
         
 # list of commands to run to setup the environment
 install:
-    - conda env create -q -n test-environment python=$TRAVIS_PYTHON_VERSION --file environment.yml
+    - conda env create -q -n test-environment python=3.7 --file environment.yml
     - conda activate test-environment
-    - conda install pylint
+    - conda install coverage coveralls pylint
 
 # a list of commands to run before the main script
 before_script:
