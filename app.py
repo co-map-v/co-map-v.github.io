@@ -118,7 +118,7 @@ def population_map(df_time,counties):
 		'condition_month':'Month'},
 	hover_name="COUNTY",
 	color_continuous_scale=px.colors.sequential.Greens,
-	range_color=[1,post_range_max])
+	range_color=[1,pos_range_max])
     fig_pop.update_geos(fitbounds="locations", visible=False)
     fig_pop.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
     return fig_pop
