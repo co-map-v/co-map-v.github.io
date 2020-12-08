@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/co-map-v/co-map-v.github.io.svg?branch=main)](https://travis-ci.org/co-map-v/co-map-v.github.io)
 
+<img src="https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/img/logo.png" width=15% height=15%>
+
+
+
 # CO-MAP-V: COVID-19 Massachussetts Map + Visualization Tool
 
 CO-MAP-V is a Python-based dynamic visualization tool built on [Plotly] and [Dash], and implemented through [Heroku]. It generates an easy-to-use comparative clickable interface depicting county-level Synthea data in the OMOP common data model to vizualize an outbreak of COVID-19 in Massachusetts for the time period January-March 2020. It provides simple options for time-series comparisons with month-specific interactive timesliders. 
