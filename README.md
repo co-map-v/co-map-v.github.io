@@ -78,6 +78,16 @@ For reference: [This is our YML for our conda virtual environment]; and [this is
 
 # Tips for Modifying CO-MAP-V Code for Personal Use
 
+#### Under construction! Check back soon!
+
+         O
+       /~~~|#|]|=\|---\__
+     |-=_____________  |\\ ,             O       O
+    I|_/,-.-.-.-.-,-.\_|='(             T/\     /\=,---.
+       ( o )( o )( o )     \            U /\   /\   `O'    cww
+        `-'-'-'-'-`-'
+
+
 
 [//]: # (Reference Links)
 
