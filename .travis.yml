@@ -35,7 +35,7 @@ before_script:
 
 # the actual commands to run
 script:
-    - coverage run tests_alan.py
+    - coverage run -m unittest discover
 
 # generate a coverage report to send to back to user
 after_success:
