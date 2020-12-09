@@ -17,8 +17,6 @@ CO-MAP-V is a Python-based dynamic visualization tool built on [Plotly] and [Das
     -  Number of positive case counts per county; 
     -  Population density per county (based on 2010 US Census estimates).
 
-# Functional Specification
-
 #### Background
 The novel coronavirus (COVID-19) has dramatically altered how we interact and socialize with one another. Our lives have shifted to balancing public health guidance and policies aimed at reducing the spread of the virus, with attempts at maintaining a sense of normalcy. Current COVID-19 research focuses on increasing our understanding of how the virus spreads through communities and neighborhoods. Given the novelty of the virus, researchers face many challenges and unknowns. First, obtaining access to patient data can involve a lengthy bureaucratic process, especially as patient data is protected and governed by the Health Insurance Portability and Accountability Act (HIPAA). Second, understanding the trends of the data may be difficult as data representation and visualization methods are highly variable, making the data subject to interpretability. Synthetic data -- simulated data that are generated based on the trends and patterns of real data -- may provide an avenue for researchers to better understand real-world data trends without the need to overcome the obstacles involved in obtaining real patient data. Being that synthetic data may be modeled on real-world data, it may allow researchers to generate results that are remaining meaningful and translatable while being easily accessible.
 
@@ -40,6 +38,8 @@ Each of the data tables have their own keys, but can be joined by `person_id`. A
 
 To fully geographically visualize the data, we use GeoJSON file of Massachusetts representing county boundaries. Ideally, geographic-demographic data table joining is completed based on Federal Information Processing Standard (FIPS) code. However, our synthetic dataset does not include FIPS codes, and so we have opted to perform spatial joins by simple county name (i.e. “Hampshire”, not “Hampshire County”). The particular GeoJSON file we are using is found at the [TopoJSON Github Repository] of topographic GeoJSON files for open use. 
 
+#### More information can be found in the [Functional] and [Component] Specifications (PDF links).
+
 #### Use Cases
 
 We are targeting health analytics personnel interested in visualizing the OMOP data format synthetic COVID-19 data for the state of Massachusetts. Currently, visualizing and understanding COVID-19 data is a priority for many in the healthcare field. However, technical skills within this field are variable. We believe that health analytics personnel or any other interested healthcare professional with limited to no experience with Geographic Information Science (GIS) or technical skill would be able to benefit and take advantage of the dashboard. No coding or querying would be necessary allowing a larger group of users to take advantage of the CO-MAP-V dashboard. Additionally, these users may be inclined to present the data to a larger audience of varying levels of expertise. Using this dashboard would allow them to provide and convey the numerical data visually and translate the data in an understandable and intuitive manner. 
@@ -51,10 +51,7 @@ A health analytics personnel is interested in exploring the density of COVID-19 
 A health analytics personnel or public health enthusiast interested in visualizing their own COVID-19 dataset, whether it be more rich and detailed synthetic data, real COVID-19 data, or data from a different state. This user would be interested in finding and utilizing a “plug-and-play” solution to visualize data in a manner that would require minimal effort. The user would need to download or clone or repository containing our step-by-step README file. The repository would include a set of GeoJSON files allowing the user to use a different state, if necessary. Otherwise the user can edit the lines importing our synthetic Massachusetts data and replace it with the paths to their own dataset of interest. If the user’s dataset is not properly formatted, he or she could use our SQL query and python scripts to format it appropriately from the OMOP common data model. Once the scripts import the desired data, the user can perform similar exploratory tasks as use case #1. 
 
 ##### Use case #3:
-A curious and aspiring data scientist interested in learning Plotly and Dash. This user may be interested in creating their own visualizations for data, particularly COVID-19 data, and may not have the resources or examples to pursue the task. This user may use our visualization tool as a stepping stone and example to learn how to create choropleths and epidemiological graphs using a common data model frequently used for COVID-19 data. 
-
-
-# Component Specification
+A curious and aspiring data scientist interested in learning Plotly and Dash. This user may be interested in creating their own visualizations for data, particularly COVID-19 data, and may not have the resources or examples to pursue the task. This user may use our visualization tool as a stepping stone and example to learn how to create choropleths and epidemiological graphs using a common data model frequently used for COVID-19 data.
 
 
 # Technical Information
@@ -83,3 +80,6 @@ If using `conda`, install `Dash`, `JSON`, `Pandas`, `Plotly` and `urllib`.
    [OHDSI]: <https://forums.ohdsi.org/t/synthetic-data-with-simulated-covid-outbreak/10256>
    [TopoJSON Github Repository]: <https://www.github.com/deldersveld/topojson/tree/master/countries/us-states>
    [Heroku]: <https://www.heroku.com>
+   [Functional]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/docs/Functional%20Specification.pdf>
+   [Component]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/docs/Component%20Specification.pdf>
+   
