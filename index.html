@@ -25,47 +25,53 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <div class="container">
+        <div class="container-xl">
             <img src="img/logo.png" height = "80px"> 
             <a class="navbar-brand js-scroll-trigger" href="#page-top">CO-MAP-V: COVID-19 Massachussetts Map + Visualization Tool</a>
         </div>
     </nav>
 
 <section>
-        <div class="row">
-            <div class="col-lg-2 mx-auto">
-                <iframe src="https://omop-ma-covid1.herokuapp.com/" width=100% height=800 frameBorder="0"></iframe>
+    <div class="container-xl">
+        <ul class="nav nav-tabs">
+            <li ><a data-toggle="tab" href="#single">Single View</a></li>
+            <li class="active"><a data-toggle="tab" href="#compare">Comparison View</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="single" class="tab-pane">
+                <br><iframe src="https://omop-ma-covid1.herokuapp.com/" width=100% height=600 frameBorder="0"></iframe>
             </div>
-            <div class="col-lg-2 mx-auto">
-                <iframe src="https://omop-ma-covid1.herokuapp.com/" width=100% height=800 frameBorder="0"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h2>Details.</h2>
-                    <p class="lead">This visualization tool uses <a href = "https://forums.ohdsi.org/t/synthetic-data-with-simulated-covid-outbreak/10256 ">synthetic Synthea data</a> that mimics an early novel coronavirus (COVID-19) outbreak within the state of Massachusetts.</p>
-                    <ul>
-                        <li>Why synthetic data?  Synthetic data -- simulated data that are generated based on the trends and patterns of real data -- may provide an avenue for researchers to better understand real-world data trends without the need to overcome the obstacles involved in obtaining real patient data.</li>
-
-                        <li>Main aim: We do not aim to implement an upload feature allowing users to import their own COVID-19 data. Instead, we seek to create an open exploratory visualization tool framework that allows users who have basic Python, GeoJSON and data cleaning knowledge to make visualizations from their own COVID-19 demographic data in the Observational Medical Outcomes Partnership (OMOP) common data format, and include an appropriate GeoJSON, with minimal effort.</li>
-                    </ul>
-
-                <br><br>
-                <h2>DIY: Use your own data.</h2>
-                <p class="lead">If you have COVID-19 data, real or synthetic, in the OMOP common data model format, you can use our tool to help visualize your data!</p>
-                <ol>
-                    <li>Clone or download our GitHub repository</li>
-                    <li>To ensure that your data is properly translated for the visualization tool, use our SQL query and python script to format the data.</li>
-                    <li>Next step... </li>
-                </ol>
-                </div>
+            <div id="compare" class="tab-pane active">
+                <br><iframe src="https://omop-ma-covid1.herokuapp.com/" width=49% height=600 frameBorder="0"></iframe>
+                <iframe src="https://omop-ma-covid1.herokuapp.com/" width=49% height=600 frameBorder="0"></iframe>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+                <h2>Details.</h2>
+                <p class="lead">This visualization tool uses <a href = "https://forums.ohdsi.org/t/synthetic-data-with-simulated-covid-outbreak/10256 ">synthetic Synthea data</a> that mimics an early novel coronavirus (COVID-19) outbreak within the state of Massachusetts.</p>
+                <ul>
+                    <li>Why synthetic data?  Synthetic data -- simulated data that are generated based on the trends and patterns of real data -- may provide an avenue for researchers to better understand real-world data trends without the need to overcome the obstacles involved in obtaining real patient data.</li>
+
+                    <li>Main aim: We do not aim to implement an upload feature allowing users to import their own COVID-19 data. Instead, we seek to create an open exploratory visualization tool framework that allows users who have basic Python, GeoJSON and data cleaning knowledge to make visualizations from their own COVID-19 demographic data in the Observational Medical Outcomes Partnership (OMOP) common data format, and include an appropriate GeoJSON, with minimal effort.</li>
+                </ul>
+
+            <br><br>
+            <h2>DIY: Use your own data.</h2>
+            <p class="lead">If you have COVID-19 data, real or synthetic, in the OMOP common data model format, you can use our tool to help visualize your data!</p>
+            <ol>
+                <li>Clone or download our GitHub repository</li>
+                <li>To ensure that your data is properly translated for the visualization tool, use our SQL query and python script to format the data.</li>
+                <li>Next step... </li>
+            </ol>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">

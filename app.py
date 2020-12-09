@@ -113,7 +113,7 @@ def population_map(df_time,counties):
     fig_pop = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	featureidkey='properties.NAME',
 	color="population_2010",
-	title="Population by County, Massachusetts (USA), 2010 Census",
+	title="Population by County, Massachusetts (USA),<br> 2010 Census",
 	labels={'population_2010':'Population',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
@@ -169,7 +169,7 @@ def population_histogram(df):
     	df (pandas dataframe)
     """
     fig_pop_hist = px.histogram(df, x="COUNTY" , y="population_2010", 
-    title="Population by County, Massachusetts (USA), 2010 Census",
+    title="Population by County, Massachusetts (USA),<br> 2010 Census",
     labels={'population_2010':'Population'},)
 
     fig_pop_hist.update_layout(
