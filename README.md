@@ -85,5 +85,5 @@ For reference: [This is our YML for our conda virtual environment]; and [this is
    [Heroku]: <https://www.heroku.com>
    [Functional]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/docs/Functional%20Specification.pdf>
    [Component]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/docs/Component%20Specification.pdf>
-   [This is our YML for our conda virtual environment] <https://github.com/co-map-v/co-map-v.github.io/blob/main/environment.yml>
+   [This is our YML for our conda virtual environment]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/environment.yml>
    [this is the requirements.txt file]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/requirements.txt>   
