@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 import plotly.express as px
 
 #Smoke tests data loaded as global variables to avoid redownloading
