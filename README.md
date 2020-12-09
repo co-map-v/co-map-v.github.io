@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/co-map-v/co-map-v.github.io.svg?branch=main)](https://travis-ci.org/co-map-v/co-map-v.github.io)
+[![Coverage Status](https://coveralls.io/repos/github/co-map-v/co-map-v.github.io/badge.svg?branch=main)](https://coveralls.io/github/co-map-v/co-map-v.github.io?branch=main)
 
 <img src="https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/img/logo.png" width=15% height=15%>
 
