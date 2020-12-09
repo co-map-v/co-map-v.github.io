@@ -68,6 +68,12 @@ If using `conda`, install `Dash`, `JSON`, `Pandas`, `Plotly` and `urllib`.
 
 ### Set Up
 
+To use the YML specification file to create an identical environment on the same machine or another machine call:
+    
+    conda create --name myenv —requirements.txt
+
+For reference: [This is our YML for our conda virtual environment]; and [this is the requirements.txt file].
+
 
 
 # Tips for Modifying CO-MAP-V Code for Personal Use
@@ -82,4 +88,5 @@ If using `conda`, install `Dash`, `JSON`, `Pandas`, `Plotly` and `urllib`.
    [Heroku]: <https://www.heroku.com>
    [Functional]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/docs/Functional%20Specification.pdf>
    [Component]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/docs/Component%20Specification.pdf>
-   
+   [This is our YML for our conda virtual environment] <https://github.com/co-map-v/co-map-v.github.io/blob/main/environment.yml>
+   [this is the requirements.txt file]: <https://github.com/co-map-v/co-map-v.github.io/blob/main/requirements.txt>   
