@@ -22,15 +22,14 @@ Args:
 # Authors: Aja Sutton, Andrew Teng, Jason Thomas, Nanhsuan Yuan
 # Autumn 2020
 
-
-import dash
 import json
+import urllib.request
+import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 import pandas as pd
 import plotly.express as px
-import urllib.request
 
 
 def death_counts_map(df_time,counties):
@@ -52,7 +51,7 @@ def death_counts_map(df_time,counties):
     fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	featureidkey='properties.NAME',
 	color="death_counts",
-	title="Number of COVID-19 Deaths in Massachusetts (USA) <br> by County, January-March 2020",
+	title="Number of COVID-19 Deaths in Massachusetts (USA) <br> by \nCounty, January-March 2020",
 	labels={'death_counts':'Number of Deaths',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
@@ -83,7 +82,7 @@ def case_count_map(df_time,counties):
     fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	featureidkey='properties.NAME',
 	color="positive_counts",
-	title="Number of Positive COVID-19 Cases in Massachusetts (USA) <br> by County, January-March 2020",
+	title="Number of Positive COVID-19 Cases in Massachusetts (USA) <br> by \nCounty, January-March 2020",
 	labels={'positive_counts':'Number of Cases',
 		'condition_month':'Month'},
 	hover_name="COUNTY",
@@ -124,14 +123,14 @@ def population_map(df_time,counties):
     return fig_pop
 
 
-def deaths_histogram(df):
+def deaths_histogram(df_time):
     """Deaths Histogram
-	
+
 	Args:
     	df (pandas dataframe): df_time pandas dataframe read in as "df".
     """
-    fig_death_hist = px.histogram(df, x="COUNTY" , y="death_counts", 
-    title="Number of COVID-19 Deaths in Massachusetts (USA) <br> by County, January-March 2020",
+    fig_death_hist = px.histogram(df_time, x="COUNTY" , y="death_counts",
+    title="Number of COVID-19 Deaths in Massachusetts (USA) <br> by County, \nJanuary-March 2020",
     labels={'population_2010':'Population',
         'condition_month':'Month'},
      animation_frame="condition_month")
@@ -143,14 +142,14 @@ def deaths_histogram(df):
     return fig_death_hist
 
 
-def case_histogram(df):
+def case_histogram(df_time):
     """Cases Histogram
 
 	Args:
     	df (pandas dataframe)
     """
-    fig_cases_hist = px.histogram(df, x="COUNTY" , y="positive_counts", 
-    title="Number of Positive COVID-19 Cases in Massachusetts (USA) <br> by County, January-March 2020",
+    fig_cases_hist = px.histogram(df_time, x="COUNTY" , y="positive_counts",
+    title="Number of Positive COVID-19 Cases in Massachusetts (USA) <br> by \nCounty, January-March 2020",
     labels={'population_2010':'Population',
         'condition_month':'Month'},
      animation_frame="condition_month")
@@ -162,13 +161,13 @@ def case_histogram(df):
     return fig_cases_hist
 
 
-def population_histogram(df):
+def population_histogram(df_time):
     """Population Histogram
 
 	Args:
     	df (pandas dataframe)
     """
-    fig_pop_hist = px.histogram(df, x="COUNTY" , y="population_2010", 
+    fig_pop_hist = px.histogram(df_time, x="COUNTY" , y="population_2010",
     title="Population by County, Massachusetts (USA),<br> 2010 Census",
     labels={'population_2010':'Population'},)
 
@@ -201,36 +200,36 @@ def create_tabs(tabs_content:list):
 
 # Load data from Github Repo
 with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
-    counties = json.load(response)
-df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv',
+    counties_1 = json.load(response)
+df_time_1 = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv',
 dtype={'COUNTY': str})
 
 
 #Initialize figures/maps and histograms
-fig_death = death_counts_map(df_time,counties)
-fig_case = case_count_map(df_time,counties)
-fig_pop = population_map(df_time,counties)
+fig_death_1 = death_counts_map(df_time_1,counties_1)
+fig_case_1 = case_count_map(df_time_1,counties_1)
+fig_pop_1 = population_map(df_time_1,counties_1)
 
-fig_death_hist = deaths_histogram(df_time)
-fig_case_hist = case_histogram(df_time)
-fig_pop_hist = population_histogram(df_time)
+fig_death_hist_1 = deaths_histogram(df_time_1)
+fig_case_hist_1 = case_histogram(df_time_1)
+fig_pop_hist_1 = population_histogram(df_time_1)
 
-figs = [fig_case,fig_death,fig_pop,fig_case_hist,fig_death_hist,fig_pop_hist]
+figs = [fig_case_1,fig_death_1,fig_pop_1,fig_case_hist_1,fig_death_hist_1,fig_pop_hist_1]
 
 
 # Tab Content
-tabs_content = []
+tabs_content_1 = []
 
 for i in range(len(figs)):
     # Describes the content within the tabs. Injects HTML formatted graphs
     # into the tab window space.
-    tabs_content.append(dbc.Card(dbc.CardBody([html.Div(dcc.Graph(figure=figs[i],))]),))
+    tabs_content_1.append(dbc.Card(dbc.CardBody([html.Div(dcc.Graph(figure=figs[i],))]),))
 
-tabs = create_tabs(tabs_content)
+tabs_1 = create_tabs(tabs_content_1)
 # Formats the layout of the Dash dashboard. Imports the Bootstrap and
 # Dash theme
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
-app.layout = dbc.Container(tabs)
+app.layout = dbc.Container(tabs_1)
 server = app.server
 
 
