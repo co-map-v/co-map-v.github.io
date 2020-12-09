@@ -40,19 +40,6 @@ To fully geographically visualize the data, we use GeoJSON file of Massachusetts
 
 #### More information can be found in the [Functional] and [Component] Specifications (PDF links).
 
-#### Use Cases
-
-We are targeting health analytics personnel interested in visualizing the OMOP data format synthetic COVID-19 data for the state of Massachusetts. Currently, visualizing and understanding COVID-19 data is a priority for many in the healthcare field. However, technical skills within this field are variable. We believe that health analytics personnel or any other interested healthcare professional with limited to no experience with Geographic Information Science (GIS) or technical skill would be able to benefit and take advantage of the dashboard. No coding or querying would be necessary allowing a larger group of users to take advantage of the CO-MAP-V dashboard. Additionally, these users may be inclined to present the data to a larger audience of varying levels of expertise. Using this dashboard would allow them to provide and convey the numerical data visually and translate the data in an understandable and intuitive manner. 
-
-##### Use case #1:
-A health analytics personnel is interested in exploring the density of COVID-19 cases on the county level for Massachusetts. The user in this use case may have a goal of understanding trends and patterns of the outbreak or may simply want to explore the data in a visual manner. Additionally, the user would not necessarily need complex technical skills as the visualization would default to displaying a basic aggregate choropleth and corresponding line chart or histogram of overall case counts. The user would simply open the dashboard and interact with the visualizations; no uploading of data would be necessary, increasing the ease of use and accessibility of the tool. The user can further explore the data through the interactive features that are present (e.g. zoom in and out, export the map in an image format, hover over counties to get more specific county-level information). Once the user is finished using the tool, he or she can simply access the dashboard again for future use, or export the visualizations to be used in presentations or publications.  
-
-##### Use case #2:
-A health analytics personnel or public health enthusiast interested in visualizing their own COVID-19 dataset, whether it be more rich and detailed synthetic data, real COVID-19 data, or data from a different state. This user would be interested in finding and utilizing a “plug-and-play” solution to visualize data in a manner that would require minimal effort. The user would need to download or clone or repository containing our step-by-step README file. The repository would include a set of GeoJSON files allowing the user to use a different state, if necessary. Otherwise the user can edit the lines importing our synthetic Massachusetts data and replace it with the paths to their own dataset of interest. If the user’s dataset is not properly formatted, he or she could use our SQL query and python scripts to format it appropriately from the OMOP common data model. Once the scripts import the desired data, the user can perform similar exploratory tasks as use case #1. 
-
-##### Use case #3:
-A curious and aspiring data scientist interested in learning Plotly and Dash. This user may be interested in creating their own visualizations for data, particularly COVID-19 data, and may not have the resources or examples to pursue the task. This user may use our visualization tool as a stepping stone and example to learn how to create choropleths and epidemiological graphs using a common data model frequently used for COVID-19 data.
-
 
 # Technical Information
 
