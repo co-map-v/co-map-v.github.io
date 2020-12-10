@@ -13,6 +13,10 @@ Must do all pep8 documentation still
 '''
 
 import pandas as pd
+import os
+from os import path
+import os.path
+import pathlib
 
 def read_patient_data(patient_data):
     '''
@@ -26,7 +30,11 @@ def read_patient_data(patient_data):
     Returns:
         pandas dataframe of the csv file read into it
     '''
-    csv_as_df = pd.read_csv(patient_data, encoding = 'utf-8')
+    file_to_read = patient_data
+    if os.path.exists(file_to_read): #tests whether or not this csv file exists
+        csv_as_df = pd.read_csv(file_to_read, encoding = 'utf-8')
+    else:
+        raise NameError(f'{file_to_read} does not exist')
     return csv_as_df
 
 def read_pop_data(population_data):
@@ -43,7 +51,11 @@ def read_pop_data(population_data):
     Returns:
         pandas dataframe of the csv file read into it
     '''
-    csv_as_df = pd.read_csv(population_data, encoding = 'utf-8')
+    file_to_read = population_data
+    if os.path.exists(file_to_read): #tests whether or not this csv file exists
+        csv_as_df = pd.read_csv(file_to_read, encoding = 'utf-8')
+    else:
+        raise NameError(f'{file_to_read} does not exist') #if file to read doesn't exist, raise error!
     return csv_as_df
 
 def county_cleaning(patient_dataset):
