@@ -19,23 +19,24 @@ import pathlib
 import pandas as pd
 
 #read in the data
-wd_of_script = pathlib.Path(__file__).parent.absolute() # get wd of this script being run where the data are
-patient_data_path = os.path.join(wd_of_script, 'data-1605136079581.csv')
-population_data_path = os.path.join(wd_of_script, 'population2010.csv')
-data = read_patient_data(patient_data_path)
-pop = read_pop_data(population_data_path)
+
+WD_OF_SCRIPT = pathlib.Path(__file__).parent.absolute() # get wd of this script being run where the data are
+PATIENT_DATA_PATH = os.path.join(WD_OF_SCRIPT, 'data-1605136079581.csv')
+POPULATION_DATA_PATH = os.path.join(WD_OF_SCRIPT, 'population2010.csv')
+DATA = read_patient_data(patient_data_path)
+POP = read_pop_data(population_data_path)
 
 #clean the data
-data,death = county_cleaning(data)
+DATA,DEATH = county_cleaning(data)
 # death = county_cleaning(data)[1]
 
 #generate features
-data_pos, data_death = features_by_county(data, death)
+DATA_POS, DATA_DEATH = features_by_county(data, death)
 # data_death = features_by_county(death, death)[1]
 
 #create dataframe for visualization
-data_flat_pop_fips = merge_data(data_pos, data_death, pop)
+DATA_FLAT_POP_FIPS = merge_data(data_pos, data_death, pop)
 
 #write dataframe to csv file in data
-output_directory = os.path.join(wd_of_script, 'covid_ma_positive_death_counts.csv')
-write_file_for_viz(data_flat_pop_fips, output_directory)
+OUTPUT_DIRECTORY = os.path.join(WD_OF_SCRIPT, 'covid_ma_positive_death_counts.csv')
+write_file_for_viz(DATA_FLAT_POP_FIPS, OUTPUT_DIRECTORY)
