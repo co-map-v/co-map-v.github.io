@@ -107,7 +107,7 @@ class UnitTests(unittest.TestCase):
         # CHANGE THIS TO BE THE TEST FOR THE TYPE OF WHAT WE WANT (PANDAS DF)
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
-        patient_data_path = os.path.join(wd_of_script, 'data', 'data-1605136079581.csv')
+        patient_data_path = os.path.join(wd_of_script, '../data', 'data-1605136079581.csv')
         dataframe = data_cleaning.read_patient_data(patient_data_path)
         self.assertTrue(isinstance(dataframe, pd.DataFrame),
                         'data output is not in dataframe format')
@@ -115,7 +115,7 @@ class UnitTests(unittest.TestCase):
     def test_read_pop_data_output_type(self):
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
-        patient_data_path = os.path.join(wd_of_script, 'data', 'population2010.csv')
+        patient_data_path = os.path.join(wd_of_script, '../data', 'population2010.csv')
         dataframe = data_cleaning.read_pop_data(patient_data_path)
         self.assertTrue(isinstance(dataframe, pd.DataFrame),
                         'data output is not in dataframe format')
@@ -125,7 +125,7 @@ class UnitTests(unittest.TestCase):
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
         #ensure this is the name of your output file fed into viz
-        filepath_read = os.path.join(wd_of_script, 'data', 'covid_ma_positive_death_counts.csv')
+        filepath_read = os.path.join(wd_of_script, '../data', 'covid_ma_positive_death_counts.csv')
         dataframe = pd.read_csv(filepath_read)
         dataframe['death_pop_ratio'] = dataframe['death_counts']/dataframe['population_2010']
         dataframe['cases_pop_ratio'] = dataframe['positive_counts']/dataframe['population_2010']
@@ -139,7 +139,7 @@ class UnitTests(unittest.TestCase):
     def test_write_file_for_viz(self): # must adjust to be the data_fips data but as a toy dataset
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
-        filepath_read = os.path.join(wd_of_script, 'data', 'covid_ma_positive_death_counts.csv')
+        filepath_read = os.path.join(wd_of_script, '../data', 'covid_ma_positive_death_counts.csv')
         dataframe = pd.read_csv(filepath_read)
         filename_to_write = 'test_cleaned_dataset.csv' # dummy output to then be deleted later
         data_cleaning.write_file_for_viz(dataframe, filename_to_write) # writes the csv file
