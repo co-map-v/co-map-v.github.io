@@ -32,9 +32,9 @@ install:
 # a list of commands to run before the main script
 before_script:
     - pylint --errors-only app.py
-    - pylint --errors-only tests.py
-    - pylint --errors-only data/date_clean.py
-    - pylint --errors-only data/data_cleaning.py
+    #- pylint --errors-only tests.py
+    #- pylint --errors-only data/date_clean.py
+    #- pylint --errors-only data/data_cleaning.py
 
 # the actual commands to run
 script:
