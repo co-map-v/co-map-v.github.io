@@ -111,7 +111,7 @@ def county_cleaning(patient_dataset):
     if set(pd.unique(data['county']).tolist()) != set(county_names):
         raise ValueError('County name in column is different from GeoJSON county name')
 
-    data['condition_month'] = pd.DatetimeIndex(data['condition_start_datetime']).month
+    data['condition_month'] = data['condition_start_datetime'].dt.month
     death = data [data['death_datetime'].notna()]
     return data,death
 
