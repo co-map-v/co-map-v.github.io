@@ -1,8 +1,7 @@
 import unittest
-import os
 import json
 import urllib.request
-import pandas as pd 
+import pandas as pd
 import plotly.express as px
 
 class UnitTests(unittest.TestCase):
@@ -23,17 +22,19 @@ class UnitTests(unittest.TestCase):
         Returns:
             fig_death (Ploty figure)
         """
-        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
+        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/'\
+            'co-map-v.github.io/main/data/ma_map.geojson') as response:
             counties = json.load(response)
 
-        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv',
-			dtype={'COUNTY': str})
+        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/'\
+            'blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str})
 
         death_range_max = max(df_time.death_counts)
         fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	        featureidkey='properties.NAME',
 	        color="death_counts",
-	        title="Number of COVID-19 Deaths in Massachusetts (USA) <br> \n by County, January-March 2020",
+	        title="Number of COVID-19 Deaths in Massachusetts (USA) <br>"\
+                "by County, January-March 2020",
 	        labels={'death_counts':'Number of Deaths',
 	            'condition_month':'Month'},
 	        hover_name="COUNTY",
@@ -60,17 +61,19 @@ class UnitTests(unittest.TestCase):
         Returns:
             fig_case (Ploty figure)
         """
-        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
+        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/'\
+            'co-map-v.github.io/main/data/ma_map.geojson') as response:
             counties = json.load(response)
 
-        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv',
-			dtype={'COUNTY': str})
+        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/'\
+            'blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str})
 
         pos_range_max = max(df_time.positive_counts)
         fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
 	        featureidkey='properties.NAME',
 	        color="positive_counts",
-	        title="Number of Positive COVID-19 Cases in Massachusetts (USA) <br> \n by County, January-March 2020",
+	        title="Number of Positive COVID-19 Cases in Massachusetts (USA) <br>"\
+                "by County, January-March 2020",
 	        labels={'positive_counts':'Number of Cases',
 	            'condition_month':'Month'},
 	        hover_name="COUNTY",
