@@ -25,7 +25,7 @@ before_install:
         
 # list of commands to run to setup the environment
 install:
-    - conda env create -q -n test-environment python=$TRAVIS_PYTHON_VERSION --file environment.yml
+    - conda env create -q -n test-environment python=$TRAVIS_PYTHON_VERSION --file requirement.txt
     - conda activate test-environment
     - conda install --yes coverage coveralls pylint
 
@@ -35,7 +35,7 @@ before_script:
     - pylint --errors-only tests/tests.py
     - pylint --errors-only tests/tests_aja.py
     #- pylint --errors-only data/data_clean.py
-    #- pylint --errors-only data/data_cleaning.py
+    - pylint --errors-only data/data_cleaning.py
 
 # the actual commands to run
 script:
