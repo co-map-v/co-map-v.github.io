@@ -110,8 +110,16 @@ def county_cleaning(patient_dataset):
     for i in range(len(counties['features'])):
         county_names.append(counties['features'][i]['properties']['NAME'])
 
-    if sorted(county_names) != sorted(pd.unique(data['county']).tolist()):
-        raise ValueError('County name in column is different from GeoJSON county name')
+    county_names.sort()
+    set_1 = pd.unique(data['county']).tolist()
+    set_1.sort()
+
+    for i in range(len(county_names)):
+        if county_names[i] != set_1[i]:
+            raise ValueError('County name in column is different from GeoJSON county name')
+
+    # if sorted(county_names) != sorted(pd.unique(data['county']).tolist()):
+    #     raise ValueError('County name in column is different from GeoJSON county name')
 
     data['condition_month'] = data['condition_start_datetime'].dt.month
     death = data [data['death_datetime'].notna()]
