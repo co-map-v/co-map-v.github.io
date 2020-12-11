@@ -52,7 +52,7 @@
 <section>
     <div class="container">
 
-                <h2>Details.</h2>
+                <h2>Details</h2>
                 <p class="lead">This visualization tool uses <a href = "https://forums.ohdsi.org/t/synthetic-data-with-simulated-covid-outbreak/10256 ">synthetic Synthea data</a> that mimics an early novel coronavirus (COVID-19) outbreak within the state of Massachusetts.</p>
                 <ul>
                     <li>Why synthetic data?  Synthetic data -- simulated data that are generated based on the trends and patterns of real data -- may provide an avenue for researchers to better understand real-world data trends without the need to overcome the obstacles involved in obtaining real patient data.</li>
@@ -61,12 +61,15 @@
                 </ul>
 
             <br><br>
-            <h2>DIY: Use your own data.</h2>
+            <h2>DIY: Use your own data</h2>
             <p class="lead">If you have COVID-19 data, real or synthetic, in the OMOP common data model format, you can use our tool to help visualize your data!</p>
             <ol>
-                <li>Clone or download our GitHub repository</li>
-                <li>To ensure that your data is properly translated for the visualization tool, use our SQL query and python script to format the data.</li>
-                <li>Next step... </li>
+                <li>Clone or download our GitHub repository. Consider creating a virtual environment (more information can be found in our GitHub README.md file).</li>
+                <li>To ensure that your data is properly translated for the visualization tool, use our SQL query and Python script to format the data. Data must be in CSV format.</li>
+                <li>Download a GeoJSON file (vector lines, not points) of the spatial area you are interested in mapping. You can check to make sure it looks correct on an online GeoJSON editor such as geojson.io .</li>
+                <li>Load the data (CSV file and GeoJSON) into our script, replacing our specific files for MA with your own.</li>
+                <li>At this point, you may either copy the Plotly Express code and the read-in code for the data into a Jupyter Notebook for easy local visualization (recommended for simplicity!), or you may proceed with a dashboard build (for advanced users).</li>
+                
             </ol>
         </div>
 
