@@ -22,12 +22,11 @@ class UnitTests(unittest.TestCase):
         Returns:
             fig_death (Ploty figure)
         """
-        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/'\
-            'co-map-v.github.io/main/data/ma_map.geojson') as response:
+        #URLs left long, ouside of PEP8 compliance to favour readability!
+        with urllib.request.urlopen("https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson") as response:
             counties = json.load(response)
 
-        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/'\
-            'blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str})
+        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str})
 
         death_range_max = max(df_time.death_counts)
         fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -61,12 +60,11 @@ class UnitTests(unittest.TestCase):
         Returns:
             fig_case (Ploty figure)
         """
-        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/'\
-            'co-map-v.github.io/main/data/ma_map.geojson') as response:
+        #URLs left long, ouside of PEP8 compliance to favour readability!
+        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
             counties = json.load(response)
 
-        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/'\
-            'blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str})
+        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str})
 
         pos_range_max = max(df_time.positive_counts)
         fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
