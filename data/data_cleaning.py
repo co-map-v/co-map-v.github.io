@@ -17,6 +17,7 @@ import json
 import os
 import pathlib
 import urllib.request
+import numpy as np
 import pandas as pd
 
 def read_patient_data(patient_data):
@@ -110,13 +111,16 @@ def county_cleaning(patient_dataset):
     for i in range(len(counties['features'])):
         county_names.append(counties['features'][i]['properties']['NAME'])
 
-    county_names.sort()
-    set_1 = pd.unique(data['county']).tolist()
-    set_1.sort()
+    nparray = np.array(county_names)
+    df_county = pd.unique(data['county'])
+    same = []
 
-    for i in range(len(county_names)):
-        if county_names[i] != set_1[i]:
-            raise ValueError('County name in column is different from GeoJSON county name')
+    for i in range(nparray.shape[0]):
+        for j in range(df_county.shape[0]):
+            if nparray[i] == df_county[j]:
+                same.append(nparray[i])
+    if same == []:
+        raise ValueError('County name in column is different from GeoJSON county name')
 
     # if sorted(county_names) != sorted(pd.unique(data['county']).tolist()):
     #     raise ValueError('County name in column is different from GeoJSON county name')
