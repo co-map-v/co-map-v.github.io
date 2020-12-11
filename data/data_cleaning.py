@@ -106,10 +106,17 @@ def county_cleaning(patient_dataset):
         'https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson')\
         as response:
         counties = json.load(response)
+
     for i in range(len(counties['features'])):
         county_names.append(counties['features'][i]['properties']['NAME'])
-    if set(pd.unique(data['county']).tolist()) != set(county_names):
-        raise ValueError('County name in column is different from GeoJSON county name')
+
+    set_1 = pd.unique(data['county'])
+    set_2 = pd.unique(county_names)
+
+    for i in range(len(set_1)):
+        if set_1[i] != set_2[i]:
+            raise ValueError('County name in column is different from GeoJSON county name')
+
 
     data['condition_month'] = data['condition_start_datetime'].dt.month
     death = data [data['death_datetime'].notna()]
@@ -160,6 +167,8 @@ def merge_data(data_pos, data_death, pop):
     for column in columns:
         if column not in pop:
             incorrect_columns.append(column)
+        else:
+            pass
     if incorrect_columns != []:
         raise NameError('No column named ' + str(incorrect_columns))
 
