@@ -24,7 +24,7 @@ class UnitTests(unittest.TestCase):
             fig_death (Ploty figure)
         """
         with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
-        	counties_1 = json.load(response)
+            counties = json.load(response)
 
         df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv',
 			dtype={'COUNTY': str})
@@ -61,7 +61,7 @@ class UnitTests(unittest.TestCase):
             fig_case (Ploty figure)
         """
         with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:
-    	    counties_1 = json.load(response)
+            counties = json.load(response)
 
         df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv',
 			dtype={'COUNTY': str})
