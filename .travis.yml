@@ -33,8 +33,8 @@ install:
 before_script:
     - pylint --errors-only app.py
     - pylint --errors-only tests/tests.py
-    - pylint --errors-only tests/tests_aja.py
-    #- pylint --errors-only data/data_clean.py
+    - pylint --errors-only tests/tests_viz.py
+    - pylint --errors-only data/data_clean.py
     - pylint --errors-only data/data_cleaning.py
 
 # the actual commands to run

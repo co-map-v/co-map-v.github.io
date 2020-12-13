@@ -18,15 +18,53 @@ CO-MAP-V is a Python-based dynamic visualization tool built on [Plotly] and [Das
     -  Population density per county (based on 2010 US Census estimates).
 
 #### Background
-The novel coronavirus (COVID-19) has dramatically altered how we interact and socialize with one another. Our lives have shifted to balancing public health guidance and policies aimed at reducing the spread of the virus, with attempts at maintaining a sense of normalcy. Current COVID-19 research focuses on increasing our understanding of how the virus spreads through communities and neighborhoods. Given the novelty of the virus, researchers face many challenges and unknowns. First, obtaining access to patient data can involve a lengthy bureaucratic process, especially as patient data is protected and governed by the Health Insurance Portability and Accountability Act (HIPAA). Second, understanding the trends of the data may be difficult as data representation and visualization methods are highly variable, making the data subject to interpretability. Synthetic data -- simulated data that are generated based on the trends and patterns of real data -- may provide an avenue for researchers to better understand real-world data trends without the need to overcome the obstacles involved in obtaining real patient data. Being that synthetic data may be modeled on real-world data, it may allow researchers to generate results that are remaining meaningful and translatable while being easily accessible.
+Current COVID-19 research focuses on increasing our understanding of how the virus spreads through communities and neighborhoods. Given the novelty of the virus, researchers face many challenges and unknowns. First, obtaining access to patient data can be a limiting factor, especially as patient data is protected and governed by the Health Insurance Portability and Accountability Act (HIPAA). Second, understanding the trends of the data may be difficult as data representation and visualization methods are highly variable, making the data subject to interpretability. Synthetic data -- simulated data that are generated based on the trends and patterns of real data -- may provide an avenue for researchers to better understand real-world data trends without the need to overcome the obstacles involved in obtaining real patient data. Since synthetic data may be modeled on real-world data, it may allow researchers to generate results that are meaningful and translatable while being more accessible.
 
 #### Goals:
 - With the synthetic COVID-19 data, we aim to build a visualization dashboard that features a choropleth map as well as a complementary chart.
 - With the dashboard, we aim to allow users (both those experienced and inexperienced with public health methods) to explore the trends and geographic spread of COVID-19 in Massachusetts.
-- All users must be able to operate a web browser, and intuit dashboard functionalities based on the dashboard labels (i.e. they need to be able to understand that they should click through a dashboard framework). 
-- Users can make educated and rational conclusions using the dynamic, interactive visualizations.
-- More experienced users or those who are more curious would be able to explore the data with finer detail by extracting our specific features of interest, e.g. death counts, rates, hospital locations.
-- We do not aim to implement an upload feature allowing users to import their own COVID-19 data. Instead, we seek to create an open exploratory visualization tool framework that allows users who have basic Python, GeoJSON and data cleaning knowledge to make visualizations from their own COVID-19 demographic data in the Observational Medical Outcomes Partnership (OMOP) common data format, and include an appropriate GeoJSON, with minimal effort. 
+- Seek to create an open exploratory visualization tool framework that allows users who have basic Python, GeoJSON and data cleaning knowledge to make visualizations from their own COVID-19 demographic data in the Observational Medical Outcomes Partnership (OMOP) common data format, and include an appropriate GeoJSON, with minimal effort. 
+
+#### Directory Structure
+```
+co-map-v.github.io/
+  |- data/
+     |- Old/
+        |- ... (Contains various files that are no longer used)
+     |- data_backup/ 
+        |- ... (Contains backup files)
+     |- __init__.py
+     |- covid_ma_positive_death_counts.csv (output of data_clean.py and input of app.py)
+     |- data-1605136079581.csv (input of data_clean.py)
+     |- data_clean.py
+     |- data_cleaning.py
+     |- ma_map_geojson
+     |- population2010.csv
+  |- docs/
+     |- website/
+        |- ... (Contains JS, CSS, images for website)
+     |- Component Specification.pdf
+     |- Functional Specification.pdf
+     |- Technology review presentation.pdf
+     |- Final presentation.pdf
+     |- index.html (GitHub Pages)
+  |- tests/
+     |- .coverage
+     |- __init__.py
+     |- tests.py
+     |- tests_viz.py
+     |- smoketest_data.csv
+  |- .coverage (Coverage)
+  |- .coveragerc (Coverage)
+  |- .gitignore
+  |- .travis.yml (Travis CI)
+  |- LICENSE
+  |- Procfile (Heroku)
+  |- README.md
+  |- app.py (Heroku)
+  |- environment.yml  (Travis CI)
+  |- requirements.txt (Heroku)
+```
 
 #### Data
 
@@ -40,24 +78,15 @@ To fully geographically visualize the data, we use GeoJSON file of Massachusetts
 
 #### More information can be found in the [Functional] and [Component] Specifications (PDF links).
 
-
 # Technical Information
 
-### Installation
+### Installation and set up
 
-If using `conda`, install `Dash`, `JSON`, `Pandas`, `Plotly` and `urllib`.    
+First, make sure that you have Python via Anaconda installed, [https://conda.pydata.org/miniconda.html](https://conda.pydata.org/miniconda.html). 
+
+Use the YML environment file to create an identical environment on your local or remote machine:
     
-    conda install dash
-    conda install json
-    conda install pandas
-    conda install plotly
-    conda install urllib
-
-### Set Up
-
-To use the YML specification file to create an identical environment on the same machine or another machine call:
-    
-    conda create --name myenv —requirements.txt
+    conda create --name myenv —environment.yml
 
 For reference: [This is our YML for our conda virtual environment]; and [this is the requirements.txt file].
 

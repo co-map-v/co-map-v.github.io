@@ -15,7 +15,6 @@ Must do all pep8 documentation still
 
 import json
 import os
-import pathlib
 import urllib.request
 import numpy as np
 import pandas as pd
@@ -190,12 +189,9 @@ def merge_data(data_pos, data_death, pop):
         raise ValueError('The following columns have incorrect dtypes: ',
                             incorrect_dtypes)
 
-    data_flat = pd.merge(data_pos, data_death, on = ['county',
-                                                        'condition_month',
-                                                        'gender_source_value',
-                                                        'race_source_value',
-                                                        'ethnicity_source_value'], how="outer")
-    data_flat_pop_fips = pd.merge(data_flat, pop, on = ['county'])
+    data_flat = data_pos.merge (data_death, how='outer')
+    data_flat_pop_fips = data_flat.merge (pop, how='outer')
+
     data_flat_pop_fips.fillna(value=0, inplace=True) #filling in the NaN with 0
     return data_flat_pop_fips
 
