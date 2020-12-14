@@ -28,42 +28,67 @@ Current COVID-19 research focuses on increasing our understanding of how the vir
 #### Directory Structure
 ```
 co-map-v.github.io/
-  |- data/
-     |- Old/
-        |- ... (Contains various files that are no longer used)
-     |- data_backup/ 
-        |- ... (Contains backup files)
-     |- __init__.py
-     |- covid_ma_positive_death_counts.csv (output of data_clean.py and input of app.py)
-     |- data-1605136079581.csv (input of data_clean.py)
-     |- data_clean.py
-     |- data_cleaning.py
-     |- ma_map_geojson
-     |- population2010.csv
-  |- docs/
-     |- website/
-        |- ... (Contains JS, CSS, images for website)
-     |- Component Specification.pdf
-     |- Functional Specification.pdf
-     |- Technology review presentation.pdf
-     |- Final presentation.pdf
-     |- index.html (GitHub Pages)
-  |- tests/
-     |- .coverage
-     |- __init__.py
-     |- tests.py
-     |- tests_viz.py
-     |- smoketest_data.csv
-  |- .coverage (Coverage)
-  |- .coveragerc (Coverage)
-  |- .gitignore
-  |- .travis.yml (Travis CI)
-  |- LICENSE
-  |- Procfile (Heroku)
-  |- README.md
-  |- app.py (Heroku)
-  |- environment.yml  (Travis CI)
-  |- requirements.txt (Heroku)
+├── LICENSE
+├── Procfile
+├── README.md
+├── __init__.py
+├── app.py
+├── comapv
+│   ├── data
+│   │   ├── Old
+│   │   │   ├── MApop.csv
+│   │   │   ├── MApop_months.csv
+│   │   │   ├── PlotlyChoroDemo.ipynb
+│   │   │   ├── data_cleaning.ipynb
+│   │   │   ├── dropdown_final.py
+│   │   │   ├── features_by_month_and_county.csv
+│   │   │   ├── interactive_choropleth_maps_code.ipynb
+│   │   │   └── test_cleaned_dataset.csv
+│   │   ├── __init__.py
+│   │   ├── covid_ma_positive_death_counts.csv
+│   │   ├── data-1605136079581.csv
+│   │   ├── data_backup
+│   │   │   ├── covid_ma_positive_death_counts.csv
+│   │   │   ├── data-1605136079581.csv
+│   │   │   ├── population2010.csv
+│   │   │   └── test_cleaned_dataset.csv
+│   │   ├── data_clean.py
+│   │   ├── data_cleaning.py
+│   │   ├── ma_map.geojson
+│   │   └── population2010.csv
+│   └── tests
+│       ├── __init__.py
+│       ├── __pycache__
+│       │   ├── __init__.cpython-38.pyc
+│       │   └── tests_viz.cpython-38.pyc
+│       ├── smoketest_data.csv
+│       ├── tests.py
+│       └── tests_viz.py
+├── docs
+│   ├── Component\ Specification.pdf
+│   ├── Functional\ Specification.pdf
+│   ├── Technology\ review\ presentation.pdf
+│   ├── index.html
+│   └── website
+│       ├── css
+│       │   ├── bootstrap.min.css
+│       │   └── scrolling-nav.css
+│       ├── img
+│       │   ├── bar.html
+│       │   ├── bar1.html
+│       │   ├── logo.png
+│       │   ├── map.html
+│       │   └── map1.html
+│       └── js
+│           ├── bootstrap.bundle.min.js
+│           ├── jquery.min.js
+│           ├── jquery.slim.min.js
+│           ├── scrolling-nav.js
+│           └── static.js
+├── environment.yml
+├── map.html
+├── maps_mod.py
+└── requirements.txt
 ```
 
 #### Data
