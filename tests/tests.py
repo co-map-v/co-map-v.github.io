@@ -104,6 +104,21 @@ class UnitTests(unittest.TestCase):
             data_cleaning.county_cleaning(table)
 
     def test_read_patient_data_output_type(self):
+        """
+        This function tests for whether or not the output of read_patient_data(patient_data_path) from
+        data_cleaning.py is a pandas dataframe.
+
+        Args:
+            Self
+
+        Returns:
+            Ok if the output of of read_patient_data(patient_data_path) from 
+            data_cleaning.py is a pandas dataframe.
+
+            Error message 'data output is not in dataframe format' if output of of 
+            read_patient_data(patient_data_path) from data_cleaning.py is not a pandas dataframe.
+
+        """
         # CHANGE THIS TO BE THE TEST FOR THE TYPE OF WHAT WE WANT (PANDAS DF)
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
@@ -113,6 +128,21 @@ class UnitTests(unittest.TestCase):
                         'data output is not in dataframe format')
 
     def test_read_pop_data_output_type(self):
+        """
+        This function tests for whether or not the output of read_pop_data(patient_data_path) from
+        data_cleaning.py is a pandas dataframe.
+
+        Args:
+            Self
+
+        Returns:
+            Ok if the output of of read_pop_data(patient_data_path) from 
+            data_cleaning.py is a pandas dataframe.
+
+            Error message 'data output is not in dataframe format' if output of of 
+            read_pop_data(patient_data_path) from data_cleaning.py is not a pandas dataframe.
+
+        """
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
         patient_data_path = os.path.join(wd_of_script, '../data', 'population2010.csv')
@@ -121,29 +151,56 @@ class UnitTests(unittest.TestCase):
                         'data output is not in dataframe format')
 
     def test_feature_counts_greater_than_pop(self):
-        features_within_range = 'True' # set default
+        """
+        This function tests for whether or not the final output file of data_cleaning.py
+        has features (Deaths or Cases) that exceed the population.
+
+        Args:
+            Self
+
+        Returns:
+            Ok if deaths or cases do not exceed the population
+            Error message if if deaths or cases do exceed the population
+
+        """
+        features_within_range = True # set default
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
         #ensure this is the name of your output file fed into viz
         filepath_read = os.path.join(wd_of_script, '../data', 'covid_ma_positive_death_counts.csv')
-        dataframe = pd.read_csv(filepath_read)
-        dataframe['death_pop_ratio'] = dataframe['death_counts']/dataframe['population_2010']
-        dataframe['cases_pop_ratio'] = dataframe['positive_counts']/dataframe['population_2010']
-        max_death_pop_ratio = dataframe['death_pop_ratio'].max()
-        max_cases_pop_ratio = dataframe['cases_pop_ratio'].max()
+        dataframe = pd.read_csv(filepath_read) #read in the final output file of data_cleaning.py
+        dataframe['death_pop_ratio'] = dataframe['death_counts']/dataframe['population_2010'] #new column for deaths/pop
+        dataframe['cases_pop_ratio'] = dataframe['positive_counts']/dataframe['population_2010'] #new column for cases/pop
+        max_death_pop_ratio = dataframe['death_pop_ratio'].max() #get max ration deaths/pop
+        max_cases_pop_ratio = dataframe['cases_pop_ratio'].max() #get max ratio cases/pop
         if max_death_pop_ratio > 1 or max_cases_pop_ratio > 1:
-            features_within_range = 'False'
-        self.assertTrue(features_within_range, 'True')
-        #, 'feature counts (deaths or cases) exceed population')
+            features_within_range = False
+        message = 'feature counts (deaths or cases) exceed population' #message for failure
+        self.assertTrue(features_within_range, message) #test if features are within range or not
 
     def test_write_file_for_viz(self): # must adjust to be the data_fips data but as a toy dataset
+        """
+        This function tests for whether or not function write_file_for_viz(dataframe, filename_to_write)
+        from data_cleaning.py creates a file in the location and named as it is instructed to do. This test
+        creates a file named 'test_cleaned_dataset.csv' using write_file_for_viz, checks whether it exists 
+        or not, then deletes that file after the test.
+
+        Args:
+            Self
+
+        Returns:
+            Ok if the file (named properly and in the correct location) exists
+            Error message if if deaths or cases do exceed the population
+
+        """
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
         filepath_read = os.path.join(wd_of_script, '../data', 'covid_ma_positive_death_counts.csv')
         dataframe = pd.read_csv(filepath_read)
         filename_to_write = 'test_cleaned_dataset.csv' # dummy output to then be deleted later
         data_cleaning.write_file_for_viz(dataframe, filename_to_write) # writes the csv file
-        self.assertTrue(os.path.exists(filename_to_write)) # does the csv we write exist?
+        message = 'file does not exist'
+        self.assertTrue(os.path.exists(filename_to_write), message) # does the csv we write exist?
         if os.path.exists(filename_to_write): # tests whether or not this csv file exists
             os.remove(filename_to_write) # removes the file if it exists
         else:
