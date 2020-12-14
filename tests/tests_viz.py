@@ -23,10 +23,10 @@ class UnitTests(unittest.TestCase):
             fig_death (Ploty figure)
         """
         #URLs left long, ouside of PEP8 compliance to favour readability!
-        with urllib.request.urlopen("https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson") as response: # pylint: disable=line-too-long
+        with open('ma_map_test.geojson') as response: # pylint: disable=line-too-long
             counties = json.load(response)
 
-        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str}) # pylint: disable=line-too-long
+        df_time = pd.read_csv('smoketest_data.csv', dtype={'COUNTY': str}) # pylint: disable=line-too-long
 
         death_range_max = max(df_time.death_counts)
         fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -61,10 +61,10 @@ class UnitTests(unittest.TestCase):
             fig_case (Ploty figure)
         """
         #URLs left long, ouside of PEP8 compliance to favour readability!
-        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response: # pylint: disable=line-too-long
+        with open('ma_map_test.geojson') as response: # pylint: disable=line-too-long
             counties = json.load(response)
 
-        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str}) # pylint: disable=line-too-long
+        df_time = pd.read_csv('smoketest_data.csv', dtype={'COUNTY': str}) # pylint: disable=line-too-long
 
         pos_range_max = max(df_time.positive_counts)
         fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
