@@ -1,5 +1,6 @@
 import unittest
 import json
+import urllib.request
 import pandas as pd
 import plotly.express as px
 
@@ -22,10 +23,10 @@ class UnitTests(unittest.TestCase):
             fig_death (Ploty figure)
         """
         #URLs left long, ouside of PEP8 compliance to favour readability!
-        with open('ma_map_test.geojson') as response: # pylint: disable=line-too-long
+        with urllib.request.urlopen("https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson") as response: # pylint: disable=line-too-long
             counties = json.load(response)
 
-        df_time = pd.read_csv('smoketest_data.csv', dtype={'COUNTY': str}) # pylint: disable=line-too-long
+        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str}) # pylint: disable=line-too-long
 
         death_range_max = max(df_time.death_counts)
         fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -41,9 +42,8 @@ class UnitTests(unittest.TestCase):
 	        animation_frame="condition_month")
         fig_death.update_geos(fitbounds="locations", visible=False)
         fig_death.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
-        fig_death.show()
-
-        self.assertTrue(fig_death)
+        
+        assertTrue(self)
 
     def smoke_test2(self):
         """Smoke Test: Case Count Map
@@ -62,10 +62,10 @@ class UnitTests(unittest.TestCase):
             fig_case (Ploty figure)
         """
         #URLs left long, ouside of PEP8 compliance to favour readability!
-        with open('ma_map_test.geojson') as response: # pylint: disable=line-too-long
+        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response: # pylint: disable=line-too-long
             counties = json.load(response)
 
-        df_time = pd.read_csv('smoketest_data.csv', dtype={'COUNTY': str}) # pylint: disable=line-too-long
+        df_time = pd.read_csv('https://github.com/co-map-v/co-map-v.github.io/blob/main/tests/smoketest_data.csv', dtype={'COUNTY': str}) # pylint: disable=line-too-long
 
         pos_range_max = max(df_time.positive_counts)
         fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -81,9 +81,8 @@ class UnitTests(unittest.TestCase):
 	        animation_frame="condition_month")
         fig_case.update_geos(fitbounds="locations", visible=False)
         fig_case.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
-        fig_case.show()
-
-        self.assertTrue(fig_case)
+        
+        assertTrue(self)
 
 suite = unittest.TestLoader().loadTestsFromTestCase(UnitTests)
 _ = unittest.TextTestRunner().run(suite)
