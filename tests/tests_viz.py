@@ -1,5 +1,6 @@
 import unittest
 import json
+import urllib.request
 import pandas as pd
 import plotly.express as px
 
@@ -25,7 +26,7 @@ class UnitTests(unittest.TestCase):
             counties = json.load(response)
 
         df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv', # pylint: disable=line-too-long
-            dtype={'COUNTY': str}) 
+            dtype={'COUNTY': str})
 
         death_range_max = max(df_time.death_counts)
         fig_death = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -43,7 +44,7 @@ class UnitTests(unittest.TestCase):
         fig_death.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
         fig_death.show()
 
-        self.assertTrue()
+        self.assertTrue
 
     def smoke_test2(self):
         """Smoke Test: Case Count Map
@@ -66,7 +67,7 @@ class UnitTests(unittest.TestCase):
             counties = json.load(response)
 
         df_time = pd.read_csv('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/covid_ma_positive_death_counts.csv', # pylint: disable=line-too-long
-            dtype={'COUNTY': str}) 
+            dtype={'COUNTY': str})
 
         pos_range_max = max(df_time.positive_counts)
         fig_case = px.choropleth(df_time, geojson=counties, locations="COUNTY",
@@ -84,7 +85,7 @@ class UnitTests(unittest.TestCase):
         fig_case.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
         fig_case.show()
 
-        self.assertTrue()
+        self.assertTrue
 
 suite = unittest.TestLoader().loadTestsFromTestCase(UnitTests)
 _ = unittest.TextTestRunner().run(suite)
