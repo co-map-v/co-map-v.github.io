@@ -1,10 +1,33 @@
 import unittest
+import os
 import json
 import pandas as pd
 import plotly.express as px
+import urllib.request
+import pathlib
+import sys
+sys.path.append('.')
+import app
 
 class UnitTests(unittest.TestCase):
 
+    def test_smoke1 (self):
+        """Smoke Test: Death Counts Map
+
+        Should check to see if the function generates a plotly plot
+        """
+        #URLs left long, ouside of PEP8 compliance to favour readability!
+        # Load data from Github Repo
+        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:   # pylint: disable=line-too-long
+            counties_1 = json.load(response)
+        wd_of_script = pathlib.Path(__file__).parent.absolute()
+        filepath_read = os.path.join(wd_of_script, './', 'smoketest_data.csv')# pylint: disable=line-too-long
+        df_time_1 = pd.read_csv(filepath_read)
+        fig = app.death_counts_map(df_time_1,counties_1)
+        string = str(type(fig))
+        self.assertEqual(string, "<class 'plotly.graph_objs._figure.Figure'>")
+
+    '''
     def smoke_test1(self):
         """Smoke Test: Death Counts Map
 
@@ -84,6 +107,7 @@ class UnitTests(unittest.TestCase):
         fig_case.show()
 
         self.assertTrue(fig_case)
-
+    '''
+    
 suite = unittest.TestLoader().loadTestsFromTestCase(UnitTests)
 _ = unittest.TextTestRunner().run(suite)

@@ -120,7 +120,7 @@ class UnitTests(unittest.TestCase):
         self.assertTrue(isinstance(dataframe, pd.DataFrame),
                         'data output is not in dataframe format')
 
-    def feature_counts_greater_than_pop(self):
+    def test_feature_counts_greater_than_pop(self):
         features_within_range = 'True' # set default
         # get wd of this script being run where the data are
         wd_of_script = pathlib.Path(__file__).parent.absolute()
@@ -131,7 +131,7 @@ class UnitTests(unittest.TestCase):
         dataframe['cases_pop_ratio'] = dataframe['positive_counts']/dataframe['population_2010']
         max_death_pop_ratio = dataframe['death_pop_ratio'].max()
         max_cases_pop_ratio = dataframe['cases_pop_ratio'].max()
-        if max_death_pop_ratio > 1 | max_cases_pop_ratio > 1:
+        if max_death_pop_ratio > 1 or max_cases_pop_ratio > 1:
             features_within_range = 'False'
         self.assertTrue(features_within_range, 'True')
         #, 'feature counts (deaths or cases) exceed population')
