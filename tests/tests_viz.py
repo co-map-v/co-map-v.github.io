@@ -41,7 +41,9 @@ class UnitTests(unittest.TestCase):
 	        animation_frame="condition_month")
         fig_death.update_geos(fitbounds="locations", visible=False)
         fig_death.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
-        return fig_death
+        fig_death.show()
+
+        self.assertTrue
 
     def smoke_test2(self):
         """Smoke Test: Case Count Map
@@ -79,7 +81,9 @@ class UnitTests(unittest.TestCase):
 	        animation_frame="condition_month")
         fig_case.update_geos(fitbounds="locations", visible=False)
         fig_case.update_layout(margin={"r":0,"t":50,"l":0,"b":0})
-        return fig_case
+        fig_case.show()
+
+        self.assertTrue
 
 suite = unittest.TestLoader().loadTestsFromTestCase(UnitTests)
 _ = unittest.TextTestRunner().run(suite)
