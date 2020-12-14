@@ -19,7 +19,7 @@ class UnitTests(unittest.TestCase):
         """
         #URLs left long, ouside of PEP8 compliance to favour readability!
         # Load data from Github Repo
-        with urllib.request.urlopen('https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson') as response:   # pylint: disable=line-too-long
+        with urllib.request.urlopen('https://raw.githubusercontent.com/comapv/comapv.github.io/main/data/ma_map.geojson') as response:   # pylint: disable=line-too-long
             counties_1 = json.load(response)
         wd_of_script = pathlib.Path(__file__).parent.absolute()
         filepath_read = os.path.join(wd_of_script, './', 'smoketest_data.csv')# pylint: disable=line-too-long
