@@ -119,14 +119,32 @@ For reference: [This is our YML for our conda virtual environment]; and [this is
 
 # Tips for Modifying CO-MAP-V Code for Personal Use
 
-#### Under construction! Check back soon!
 
-         O
-       /~~~|#|]|=\|---\__
-     |-=_____________  |\\ ,             O       O
-    I|_/,-.-.-.-.-,-.\_|='(             T/\     /\=,---.
-       ( o )( o )( o )     \            U /\   /\   `O'    cww
-        `-'-'-'-'-`-'
+## Data
+
+### GeoJson Data
+- 
+### Patient Data
+* If using data formatted in the OMOP CDM (v5.3.1), refer to the first few commented lines of ~/comapv/data/data_cleaning.py which includes the SQL script used for data extraction from the synthea data formatted in the OMOP CDM:
+
+* '''SQL
+SELECT DISTINCT l.zip, l.county, p.person_id, p.gender_source_value,
+p.birth_datetime, p.death_datetime, p.race_source_value,
+p.ethnicity_source_value, c.condition_start_datetime,
+c.condition_concept_id
+FROM person p
+INNER JOIN condition_occurrence c ON c.person_id = p.person_id
+INNER JOIN location l on l.location_id = p.location_id
+WHERE condition_concept_id = '37311061' --Disease caused by 2019-nCoV
+'''
+
+* If not using data formatted in the OMOP CDM, make sure to query your data with the result formatted the same as the data are in ~/comapv/data/data-1605136079581.csv and name your file 'data-1605136079581.csv' for ease of use to ensure you won't have to rename the file when it is referenced in analysis and/or testing.
+
+### Cleaning your data:
+1. Make sure your data ('data-1605136079581.csv' and 'population2010.csv') are formatted the same as they are in this repository.
+2. Edit ~/comapv/data/data_clean.py to change the name of the output file (currently 'covid_ma_positive_death_counts.csv') to a name suitable for your project 
+3. Run ~/comapv/data/data_clean.py
+4. Adjust tests as needed if name of output file ('covid_ma_positive_death_counts.csv') has changed.
 
 
 
