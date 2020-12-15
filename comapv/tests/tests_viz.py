@@ -8,7 +8,7 @@ import json
 import urllib.request
 import pathlib
 import pandas as pd
-from comapv import app
+from .. import app
 
 class UnitTests(unittest.TestCase):
 
