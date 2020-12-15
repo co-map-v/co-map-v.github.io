@@ -6,15 +6,15 @@ This is the clean script we want to run for our data cleaning pipeline.
 
 import os
 import pathlib
-from comapv.data import data_cleaning
+import data_cleaning
 
 #read in the data
 
 # get wd of this script being run where the data are
 WD_OF_SCRIPT = pathlib.Path(__file__).parent.absolute()
 
-PATIENT_DATA_PATH = os.path.join(WD_OF_SCRIPT, './data-1605136079581.csv')
-POPULATION_DATA_PATH = os.path.join(WD_OF_SCRIPT, './population2010.csv')
+PATIENT_DATA_PATH = os.path.join(WD_OF_SCRIPT, 'data-1605136079581.csv')
+POPULATION_DATA_PATH = os.path.join(WD_OF_SCRIPT, 'population2010.csv')
 DATA = data_cleaning.read_patient_data(POPULATION_DATA_PATH)
 POP = data_cleaning.read_pop_data(POPULATION_DATA_PATH)
 
