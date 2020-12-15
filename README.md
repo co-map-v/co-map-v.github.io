@@ -28,46 +28,28 @@ Current COVID-19 research focuses on increasing our understanding of how the vir
 #### Directory Structure
 ```
 co-map-v.github.io/
-├── LICENSE
-├── Procfile
-├── README.md
-├── __init__.py
-├── app.py
 ├── comapv
+│   ├── app.py
+│   ├── __init__.py
 │   ├── data
 │   │   ├── Old
-│   │   │   ├── MApop.csv
-│   │   │   ├── MApop_months.csv
-│   │   │   ├── PlotlyChoroDemo.ipynb
-│   │   │   ├── data_cleaning.ipynb
-│   │   │   ├── dropdown_final.py
-│   │   │   ├── features_by_month_and_county.csv
-│   │   │   ├── interactive_choropleth_maps_code.ipynb
-│   │   │   └── test_cleaned_dataset.csv
 │   │   ├── __init__.py
 │   │   ├── covid_ma_positive_death_counts.csv
 │   │   ├── data-1605136079581.csv
 │   │   ├── data_backup
-│   │   │   ├── covid_ma_positive_death_counts.csv
-│   │   │   ├── data-1605136079581.csv
-│   │   │   ├── population2010.csv
-│   │   │   └── test_cleaned_dataset.csv
 │   │   ├── data_clean.py
 │   │   ├── data_cleaning.py
 │   │   ├── ma_map.geojson
 │   │   └── population2010.csv
 │   └── tests
 │       ├── __init__.py
-│       ├── __pycache__
-│       │   ├── __init__.cpython-38.pyc
-│       │   └── tests_viz.cpython-38.pyc
 │       ├── smoketest_data.csv
 │       ├── tests.py
 │       └── tests_viz.py
 ├── docs
-│   ├── Component\ Specification.pdf
-│   ├── Functional\ Specification.pdf
-│   ├── Technology\ review\ presentation.pdf
+│   ├── Component Specification.pdf
+│   ├── Functional Specification.pdf
+│   ├── Technology review presentation.pdf
 │   ├── index.html
 │   └── website
 │       ├── css
@@ -85,10 +67,14 @@ co-map-v.github.io/
 │           ├── jquery.slim.min.js
 │           ├── scrolling-nav.js
 │           └── static.js
+├── .travis.yml
+├── LICENSE
+├── Procfile
+├── README.md
+├── __init__.py
 ├── environment.yml
-├── map.html
-├── maps_mod.py
-└── requirements.txt
+├── requirements.txt
+└── setup.py
 ```
 
 #### Data
