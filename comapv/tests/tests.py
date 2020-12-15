@@ -10,11 +10,11 @@ from comapv.data import data_cleaning
 
 
 class UnitTests(unittest.TestCase):
-    '''
+    """
     Unit test class
-    '''
+    """
     def test_column_names_for_covid_data(self):
-        '''
+        """
         This function tests whether the input pandas dataframe for county_cleaning
         has the correct names for columns or not in data_cleaning.py
 
@@ -26,14 +26,14 @@ class UnitTests(unittest.TestCase):
 
             Error message 'No column named [list of incorrect column names]' if there are
             incorrect column names in pandas dataframe.
-        '''
+        """
         table = pd.DataFrame({'county1': ['County1','County2'],'condition': [1,2],
                             'deaths': [1,2]})
         with self.assertRaises(NameError):
             data_cleaning.county_cleaning(table)
 
     def test_column_names_for_pop_data(self):
-        '''
+        """
         This function tests whether the input pandas dataframe for merge_data
         has the correct names for columns or not in data_cleaning.py
 
@@ -45,7 +45,7 @@ class UnitTests(unittest.TestCase):
 
             Error message 'No column named [list of incorrect column names]' if there are
             incorrect column names in pandas dataframe.
-        '''
+        """
         pop_table = pd.DataFrame({'county1': ['County1','County2'],'condition': [1,2],
                             'deaths': [1,2]})
         table1 = pd.DataFrame({'zip': [1,2],'county': [1,2],
@@ -66,7 +66,7 @@ class UnitTests(unittest.TestCase):
             data_cleaning.merge_data(table1,table2,pop_table)
 
     def test_column_type_in_county_cleaning(self):
-        '''
+        """
         This function tests whether the input pandas dataframe for county_cleaning
         has the correct data types (dtypes) for columns or not in data_cleaning.py
 
@@ -79,7 +79,7 @@ class UnitTests(unittest.TestCase):
             Error message 'The following columns have incorrect dtypes: 
             [list of columns with incorrect dtypes]' if there are incorrect dtypes 
             in columns in pandas dataframe.
-        '''
+        """
         table = pd.DataFrame({'zip': [1,2],'county': [1,2],
                             'person_id': [1,2],'gender_source_value': [1,2],
                             'birth_datetime': [1,2], 'death_datetime': [1,2],
@@ -91,7 +91,7 @@ class UnitTests(unittest.TestCase):
             data_cleaning.county_cleaning(table)
 
     def test_column_type_in_merge_data(self):
-        '''
+        """
         This function tests whether the input pandas dataframe for merge_data
         has the correct data types (dtypes) for columns or not in data_cleaning.py
 
@@ -104,7 +104,7 @@ class UnitTests(unittest.TestCase):
             Error message 'The following columns have incorrect dtypes: 
             [list of columns with incorrect dtypes]' if there are incorrect dtypes 
             in columns in pandas dataframe.
-        '''
+        """
         pop_table = pd.DataFrame({'fips_code':[1.5,1.6],'county':['King','King'],
                                 'population_2010':[1,0]})
         table1 = pd.DataFrame({'zip': [1,2],'county': [1,2],
@@ -125,7 +125,7 @@ class UnitTests(unittest.TestCase):
             data_cleaning.merge_data(table1,table2,pop_table)
 
     def test_nan(self):
-        '''
+        """
         This function tests whether the input pandas dataframe for write_file_for_viz
         has NaN values in columns or not in data_cleaning.py
 
@@ -137,7 +137,7 @@ class UnitTests(unittest.TestCase):
 
             Error message 'Nan values in [list of columns with NaN values]' if there are NaN 
             in columns in pandas dataframe.
-        '''
+        """
         table = pd.DataFrame({'county1': [np.nan,'County2'],'condition': [1,2],
                             'deaths': [1,2]})
         path = ' '
@@ -145,7 +145,7 @@ class UnitTests(unittest.TestCase):
             data_cleaning.write_file_for_viz(table,path)
 
     def test_county_names(self):
-        '''
+        """
         This function tests whether the input pandas dataframe for county_cleaning
         has the same county names in county column as GeoJSON file's county names.
 
@@ -157,7 +157,7 @@ class UnitTests(unittest.TestCase):
 
             Error message 'County name in column is different from GeoJSON county name' 
             if there are county names that are different from those of GeoJSON file.
-        '''
+        """
         table = pd.DataFrame({'zip': [1,2],'county': ['KingCounty','King'],
                             'person_id': [1,2],'gender_source_value': [1,2],
                             'birth_datetime': [1,2], 'death_datetime': [1,2],
