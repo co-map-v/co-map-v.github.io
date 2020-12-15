@@ -32,7 +32,7 @@ install:
 
 # a list of commands to run before the main script
 before_script:
-    - pylint --errors-only app.py
+    - pylint --errors-only comapv/app.py
     - pylint --errors-only comapv/tests/tests.py
     - pylint --errors-only comapv/tests/tests_viz.py
     - pylint --errors-only comapv/data/data_clean.py
