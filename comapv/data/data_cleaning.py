@@ -121,10 +121,7 @@ def county_cleaning(patient_dataset):
             if nparray[i] == df_county[j]:
                 same.append(nparray[i])
     if same == []:
-        raise ValueError('County name in column is different from GeoJSON county name')
-
-    # if sorted(county_names) != sorted(pd.unique(data['county']).tolist()):
-    #     raise ValueError('County name in column is different from GeoJSON county name')
+        raise ValueError('County name in column is different from GeoJSON county name')\
 
     data['condition_month'] = data['condition_start_datetime'].dt.month
     death = data [data['death_datetime'].notna()]
