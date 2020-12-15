@@ -127,7 +127,7 @@ For reference: [This is our YML for our conda virtual environment]; and [this is
 ### Patient Data
 * If using data formatted in the OMOP CDM (v5.3.1), refer to the first few commented lines of ~/comapv/data/data_cleaning.py which includes the SQL script used for data extraction from the synthea data formatted in the OMOP CDM:
 
-* ```SQL
+```SQL
 SELECT DISTINCT l.zip, l.county, p.person_id, p.gender_source_value,
 p.birth_datetime, p.death_datetime, p.race_source_value,
 p.ethnicity_source_value, c.condition_start_datetime,
