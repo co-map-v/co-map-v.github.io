@@ -1,5 +1,6 @@
 '''Data was released Mar 29. Before summer uptick.
 SQL query below to extract and format data correctly
+***********
 SELECT DISTINCT l.zip, l.county, p.person_id, p.gender_source_value,
 p.birth_datetime, p.death_datetime, p.race_source_value,
 p.ethnicity_source_value, c.condition_start_datetime,
@@ -8,8 +9,6 @@ FROM person p
 INNER JOIN condition_occurrence c ON c.person_id = p.person_id
 INNER JOIN location l on l.location_id = p.location_id
 WHERE condition_concept_id = '37311061' --Disease caused by 2019-nCoV
-***********
-Must do all pep8 documentation still
 ***********
 
 Pylint = 9.57
@@ -22,17 +21,21 @@ import numpy as np
 import pandas as pd
 
 def read_patient_data(patient_data):
-    '''
+    """
     Reads in the data for patient-level data.
 
     Args:
-        patient_data (str): the path to the patient-level data. Should be formatted like:
-        *********************
-        *********************
+        patient_data (str): the path to the patient-level data. Should be formatted
+        the following way.
+        columns = ['zip','county','person_id','gender_source_value','birth_datetime',
+                'death_datetime','race_source_value','ethnicity_source_value',
+                'condition_start_datetime','condition_concept_id']
+        Data types and possible values should conform to the OMOP CDM5.3.1 
+        standard as seen here https://ohdsi.github.io/CommonDataModel/cdm531.html
 
     Returns:
         pandas dataframe of the csv file read into it
-    '''
+    """
     file_to_read = patient_data
     if os.path.exists(file_to_read): #tests whether or not this csv file exists
         csv_as_df = pd.read_csv(file_to_read, encoding = 'utf-8')
@@ -41,19 +44,16 @@ def read_patient_data(patient_data):
     return csv_as_df
 
 def read_pop_data(population_data):
-    '''
+    """
     Reads in the data for population data (census data).
 
     Args:
         population_data (str): the path to the census data.
-        data contains positive cases, gender, race/ethnicity, death, birth.
-        Should be formatted like:
-        *********************
-        *********************
+        columns = fips_code (int), count (str), population_2010 (int)
 
     Returns:
         pandas dataframe of the csv file read into it
-    '''
+    """
     file_to_read = population_data
     if os.path.exists(file_to_read): #tests whether or not this csv file exists
         csv_as_df = pd.read_csv(file_to_read, encoding = 'utf-8')
@@ -63,7 +63,7 @@ def read_pop_data(population_data):
     return csv_as_df
 
 def county_cleaning(patient_dataset):
-    '''
+    """
     Clean up patient_dataset's county, condition_start_datetime, and death_datetime
     columns.
 
@@ -72,7 +72,7 @@ def county_cleaning(patient_dataset):
 
     Returns:
         Two pandas dataframes
-    '''
+    """
     columns = ['zip','county','person_id','gender_source_value','birth_datetime',
                 'death_datetime','race_source_value','ethnicity_source_value',
                 'condition_start_datetime','condition_concept_id']
@@ -130,7 +130,7 @@ def county_cleaning(patient_dataset):
 #cases by county
 #some persons have multiple entries (unique cases)
 def features_by_county(patient_data, death_data):
-    '''
+    """
     Groups cases by county
 
     Args:
@@ -139,7 +139,7 @@ def features_by_county(patient_data, death_data):
 
     Returns:
         Two pandas dataframes
-    '''
+    """
     data = patient_data
     death = death_data
     data_pos = data.groupby(['county',
@@ -155,7 +155,7 @@ def features_by_county(patient_data, death_data):
     return data_pos,data_death
 
 def merge_data(data_pos, data_death, pop):
-    '''
+    """
     Merge data_pos, data_death, and pop together as one dataframe
 
     Args:
@@ -164,7 +164,7 @@ def merge_data(data_pos, data_death, pop):
 
     Returns:
         One pandas dataframe
-    '''
+    """
     incorrect_dtypes = []
     columns = ['fips_code','county','population_2010']
     incorrect_columns = []
@@ -195,7 +195,7 @@ def merge_data(data_pos, data_death, pop):
     return data_flat_pop_fips
 
 def write_file_for_viz(data_flat_pop_fips, path):
-    '''
+    """
     Writes out pandas dataframe into csv file for visualization
 
     Args:
@@ -204,7 +204,7 @@ def write_file_for_viz(data_flat_pop_fips, path):
 
     Returns:
         None
-    '''
+    """
     nan_columns = []
     for column in data_flat_pop_fips.columns:
         if True in data_flat_pop_fips[column].isna().tolist():
