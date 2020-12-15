@@ -185,10 +185,9 @@ class UnitTests(unittest.TestCase):
             read_patient_data(patient_data_path) from data_cleaning.py is not a pandas dataframe.
 
         """
-        # CHANGE THIS TO BE THE TEST FOR THE TYPE OF WHAT WE WANT (PANDAS DF)
-        # get wd of this script being run where the data are
+        # get wd of this script being run
         wd_of_script = pathlib.Path(__file__).parent.absolute()
-        patient_data_path = os.path.join(wd_of_script, '../data', 'data-1605136079581.csv')
+        patient_data_path = os.path.join(wd_of_script, '../data', 'data-1605136079581.csv') #filepath to the data
         dataframe = data_cleaning.read_patient_data(patient_data_path)
         self.assertTrue(isinstance(dataframe, pd.DataFrame),
                         'data output is not in dataframe format')
@@ -209,9 +208,9 @@ class UnitTests(unittest.TestCase):
             read_pop_data(patient_data_path) from data_cleaning.py is not a pandas dataframe.
 
         """
-        # get wd of this script being run where the data are
+        # get wd of this script being run
         wd_of_script = pathlib.Path(__file__).parent.absolute()
-        patient_data_path = os.path.join(wd_of_script, '../data', 'population2010.csv')
+        patient_data_path = os.path.join(wd_of_script, '../data', 'population2010.csv') #filepath to the data
         dataframe = data_cleaning.read_pop_data(patient_data_path)
         self.assertTrue(isinstance(dataframe, pd.DataFrame),
                         'data output is not in dataframe format')
@@ -230,10 +229,10 @@ class UnitTests(unittest.TestCase):
 
         """
         features_within_range = True # set default
-        # get wd of this script being run where the data are
+        # get wd of this script being run
         wd_of_script = pathlib.Path(__file__).parent.absolute()
         #ensure this is the name of your output file fed into viz
-        filepath_read = os.path.join(wd_of_script, '../data', 'covid_ma_positive_death_counts.csv')
+        filepath_read = os.path.join(wd_of_script, '../data', 'covid_ma_positive_death_counts.csv') # filepath to the data
 
         #read in the final output file of data_cleaning.py
         dataframe = pd.read_csv(filepath_read)
@@ -249,7 +248,7 @@ class UnitTests(unittest.TestCase):
         message = 'feature counts (deaths or cases) exceed population' #message for failure
         self.assertTrue(features_within_range, message) #test if features are within range or not
 
-    def test_write_file_for_viz(self): # must adjust to be the data_fips data but as a toy dataset
+    def test_write_file_for_viz(self):
         """
         This function tests for whether or not function
         write_file_for_viz(dataframe, filename_to_write)
@@ -265,9 +264,9 @@ class UnitTests(unittest.TestCase):
             Error message if if deaths or cases do exceed the population
 
         """
-        # get wd of this script being run where the data are
+        # get wd of this script being run
         wd_of_script = pathlib.Path(__file__).parent.absolute()
-        filepath_read = os.path.join(wd_of_script, '../data', 'covid_ma_positive_death_counts.csv')
+        filepath_read = os.path.join(wd_of_script, '../data', 'covid_ma_positive_death_counts.csv') # filepath to the data
         dataframe = pd.read_csv(filepath_read)
         filename_to_write = 'test_cleaned_dataset.csv' # dummy output to then be deleted later
         data_cleaning.write_file_for_viz(dataframe, filename_to_write) # writes the csv file
