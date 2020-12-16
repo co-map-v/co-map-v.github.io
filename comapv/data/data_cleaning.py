@@ -19,6 +19,7 @@ import os
 import urllib.request
 import numpy as np
 import pandas as pd
+import datetime as dt
 
 def read_patient_data(patient_data):
     """
@@ -105,7 +106,7 @@ def county_cleaning(patient_dataset):
     data['county'] = data['county'].str.split(' ').str[0]
 
     with urllib.request.urlopen(
-        'https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/data/ma_map.geojson')\
+        'https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/comapv/data/ma_map.geojson')\
         as response:
         counties = json.load(response)
 
@@ -122,7 +123,8 @@ def county_cleaning(patient_dataset):
                 same.append(nparray[i])
     if same == []:
         raise ValueError('County name in column is different from GeoJSON county name')\
-
+    
+    data['condition_start_datetime'] = pd.to_datetime(data['condition_start_datetime'], infer_datetime_format=True)
     data['condition_month'] = data['condition_start_datetime'].dt.month
     death = data [data['death_datetime'].notna()]
     return data,death
