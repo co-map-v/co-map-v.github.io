@@ -81,7 +81,7 @@ def county_cleaning(patient_dataset):
     incorrect_dtypes = []
 
     for column in columns:
-        if column not in patient_dataset:
+        if column not in patient_dataset.columns:
             incorrect_columns.append(column)
     if incorrect_columns != []:
         raise NameError('No column named ' + str(incorrect_columns))
