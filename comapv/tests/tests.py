@@ -158,12 +158,12 @@ class UnitTests(unittest.TestCase):
             Error message 'County name in column is different from GeoJSON county name' 
             if there are county names that are different from those of GeoJSON file.
         """
-        table = pd.DataFrame({'zip': [1,2],'county': ['King County','Fulton County'],
-                            'person_id': [1,2],'gender_source_value': [1,2],
-                            'birth_datetime': [1,2], 'death_datetime': [1,2],
-                            'race_source_value': [1,2],
-                            'ethnicity_source_value': [1,2],
-                            'condition_start_datetime': [1,2],
+        table = pd.DataFrame({'zip': [1.1,2.2],'county': ['King County','Fulton County'],
+                            'person_id': [1,2],'gender_source_value': [1,'yo'],
+                            'birth_datetime': [1,'yo'], 'death_datetime': [1,'yo'],
+                            'race_source_value': [1,'yo'],
+                            'ethnicity_source_value': [1,'yo'],
+                            'condition_start_datetime': [1,'yo'],
                             'condition_concept_id': [1,2]})
         with self.assertRaises(ValueError):
             data_cleaning.county_cleaning(table)
