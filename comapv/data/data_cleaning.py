@@ -106,7 +106,7 @@ def county_cleaning(patient_dataset):
     data['county'] = data['county'].str.split(' ').str[0]
 
     with urllib.request.urlopen(
-        'https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/comapv/data/ma_map.geojson')
+        'https://raw.githubusercontent.com/co-map-v/co-map-v.github.io/main/comapv/data/ma_map.geojson')\
         as response:
         counties = json.load(response)
 
