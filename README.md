@@ -20,13 +20,13 @@ CO-MAP-V is a Python-based dynamic visualization tool built on [Plotly] and [Das
 Below is the screenshot for comparison view dashboard. Note that users can hover their mouse on different counties to see details as shown in the screenshot.
 <br/>
 <br/>
-<img src="docs/CO-MAP-V_screenshot_1.PNG" width="50%">
+<img src="docs/CO-MAP-V_screenshot_1.PNG" width="75%">
 <br/>
 <br/>
 Below is another screenshot for single view dashboard:
 <br/>
 <br/>
-<img src="docs/CO-MAP-V_screenshot_2.png" width="50%">
+<img src="docs/CO-MAP-V_screenshot_2.png" width="75%">
 <br/>
 <br/>
 
