@@ -68,7 +68,7 @@ co-map-v.github.io/
 │   ├── Technology review presentation.pdf
 │   ├── index.html
 │   └── website/
-|   |   ├── ...
+|       ├── ...
 ├── .travis.yml
 ├── LICENSE
 ├── Procfile
@@ -109,18 +109,18 @@ First, clone our repository.
     
     git clone https://github.com/co-map-v/co-map-v.github.io
 
-Then make the following changes as needed
+Then make the following changes as needed.
 
 ## Data
 
 ### GeoJson Data
-* Get the needed .json files from https://github.com/deldersveld/topojson/tree/master/countries/us-states
+* Get the needed .json files from https://github.com/deldersveld/topojson/tree/master/countries/us-states.
 * Append them together into one file called 'ma_map.geojson' to avoid renaming the file in scripts.
-* Delete and replace this repository's 'ma_map.geojson' file with your own geojson file formatted the same way (e.g. same columns and data types)
+* Delete and replace this repository's 'ma_map.geojson' file with your own geojson file formatted the same way (e.g. same columns and data types).
 
 ### Population Data
-* Get the needed census data of population by county from https://data.census.gov
-* Name the file 'population2010.csv', replace our ~/comapv/data/population2010.csv with your own file and ensure it is formatted the same way (e.g. same columns and data types)
+* Get the needed census data of population by county from https://data.census.gov.
+* Name the file 'population2010.csv', replace our ~/comapv/data/population2010.csv with your own file and ensure it is formatted the same way (e.g. same columns and data types).
 ### Patient Data
 * If using data formatted in the OMOP CDM (v5.3.1), refer to the first few commented lines of ~/comapv/data/data_cleaning.py which includes the SQL script used for data extraction from the synthea data formatted in the OMOP CDM:
 
@@ -139,8 +139,8 @@ Then make the following changes as needed
 
 ### Cleaning your data:
 1. Make sure your data ('data-1605136079581.csv' and 'population2010.csv') are formatted the same as they are in this repository.
-2. Edit ~/comapv/data/data_clean.py to change the name of the output file (currently 'covid_ma_positive_death_counts.csv') to a name suitable for your project 
-3. Run ~/comapv/data/data_clean.py
+2. Edit ~/comapv/data/data_clean.py to change the name of the output file (currently 'covid_ma_positive_death_counts.csv') to a name suitable for your project.
+3. Run ~/comapv/data/data_clean.py.
 4. Adjust tests as needed if name of output file ('covid_ma_positive_death_counts.csv') has changed.
 
 ## Web deployment
