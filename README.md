@@ -16,6 +16,7 @@ CO-MAP-V is a Python-based dynamic visualization tool built on [Plotly] and [Das
     -  Number of deaths per county; 
     -  Number of positive case counts per county; 
     -  Population density per county (based on 2010 US Census estimates).
+
 Below is the screenshot for comparison view dashboard. Note that users can hover their mouse on different counties to see details as shown in the screenshot.
 <br/>
 <br/>
