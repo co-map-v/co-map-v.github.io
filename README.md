@@ -16,6 +16,18 @@ CO-MAP-V is a Python-based dynamic visualization tool built on [Plotly] and [Das
     -  Number of deaths per county; 
     -  Number of positive case counts per county; 
     -  Population density per county (based on 2010 US Census estimates).
+Below is the screenshot for comparison view dashboard. Note that users can hover their mouse on different counties to see details as shown in the screenshot.
+<br/>
+<br/>
+<img src="docs/CO-MAP-V_screenshot_1.png" width="50%">
+<br/>
+<br/>
+Below is another screenshot for single view dashboard:
+<br/>
+<br/>
+<img src="docs/CO-MAP-V_screenshot_2.png" width="50%">
+<br/>
+<br/>
 
 #### Background
 Current COVID-19 research focuses on increasing our understanding of how the virus spreads through communities and neighborhoods. Given the novelty of the virus, researchers face many challenges and unknowns. First, obtaining access to patient data can be a limiting factor, especially as patient data is protected and governed by the Health Insurance Portability and Accountability Act (HIPAA). Second, understanding the trends of the data may be difficult as data representation and visualization methods are highly variable, making the data subject to interpretability. Synthetic data -- simulated data that are generated based on the trends and patterns of real data -- may provide an avenue for researchers to better understand real-world data trends without the need to overcome the obstacles involved in obtaining real patient data. Since synthetic data may be modeled on real-world data, it may allow researchers to generate results that are meaningful and translatable while being more accessible.
@@ -92,7 +104,11 @@ For reference: [This is our YML for our conda virtual environment]; and [this is
 
 
 # Tips for Modifying CO-MAP-V Code for Personal Use
-First, clone our repository. Then make the following changes as needed
+First, clone our repository.
+    
+    git clone https://github.com/co-map-v/co-map-v.github.io
+
+Then make the following changes as needed
 
 ## Data
 
