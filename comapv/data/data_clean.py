@@ -15,7 +15,7 @@ WD_OF_SCRIPT = pathlib.Path(__file__).parent.absolute()
 
 PATIENT_DATA_PATH = os.path.join(WD_OF_SCRIPT, './data-1605136079581.csv')
 POPULATION_DATA_PATH = os.path.join(WD_OF_SCRIPT, './population2010.csv')
-DATA = data_cleaning.read_patient_data(POPULATION_DATA_PATH)
+DATA = data_cleaning.read_patient_data(PATIENT_DATA_PATH)
 POP = data_cleaning.read_pop_data(POPULATION_DATA_PATH)
 
 #clean the data

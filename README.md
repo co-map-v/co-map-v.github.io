@@ -28,50 +28,38 @@ Current COVID-19 research focuses on increasing our understanding of how the vir
 #### Directory Structure
 ```
 co-map-v.github.io/
-├── comapv
+├── comapv/
 │   ├── app.py
 │   ├── __init__.py
-│   ├── data
-│   │   ├── Old
+│   ├── data/
+│   │   ├── Old/
+|   |   |   ├── ...
 │   │   ├── __init__.py
 │   │   ├── covid_ma_positive_death_counts.csv
 │   │   ├── data-1605136079581.csv
-│   │   ├── data_backup
+│   │   ├── data_backup/
+|   |   |   ├── ...
 │   │   ├── data_clean.py
 │   │   ├── data_cleaning.py
 │   │   ├── ma_map.geojson
 │   │   └── population2010.csv
-│   └── tests
+│   └── tests/
 │       ├── __init__.py
 │       ├── smoketest_data.csv
 │       ├── tests.py
 │       └── tests_viz.py
-├── docs
+├── docs/
 │   ├── Component Specification.pdf
+|   ├── Final presentation.pdf
 │   ├── Functional Specification.pdf
 │   ├── Technology review presentation.pdf
 │   ├── index.html
-│   └── website
-│       ├── css
-│       │   ├── bootstrap.min.css
-│       │   └── scrolling-nav.css
-│       ├── img
-│       │   ├── bar.html
-│       │   ├── bar1.html
-│       │   ├── logo.png
-│       │   ├── map.html
-│       │   └── map1.html
-│       └── js
-│           ├── bootstrap.bundle.min.js
-│           ├── jquery.min.js
-│           ├── jquery.slim.min.js
-│           ├── scrolling-nav.js
-│           └── static.js
+│   └── website/
+|   |   ├── ...
 ├── .travis.yml
 ├── LICENSE
 ├── Procfile
 ├── README.md
-├── __init__.py
 ├── environment.yml
 ├── requirements.txt
 └── setup.py
